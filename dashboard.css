@@ -1,0 +1,192 @@
+/* ==========================================
+   DASHBOARD SCREEN (Híbrido)
+   ========================================== */
+
+:root {
+    --bg-grad-top: #F0E8ED;
+    --bg-grad-bottom: #F9FAFB;
+    --surface-card: #FFFFFF;
+    --text-primary: #111827;
+    --text-secondary: #6B7280;
+    
+    --bg-red-light: #FEE2E2;
+    --bg-yellow-light: #FEF3C7;
+    --bg-blue-light: #DBEAFE;
+    --bg-purple-light: #F3E8FF;
+    --bg-pink-light: #FCE7F3;
+    --bg-orange-light: #FFEDD5;
+}
+
+#tab-dashboard { background: linear-gradient(to bottom, var(--bg-grad-top) 0%, var(--bg-grad-bottom) 25%); }
+
+/* Header e Calendário */
+.dash-header { display: flex; justify-content: space-between; align-items: center; padding: 20px 24px 16px 24px; position: sticky; top: 0; z-index: 10; }
+.header-brand { display: flex; align-items: center; gap: 8px; }
+.app-logo { width: 28px; height: 28px; object-fit: contain; }
+.header-brand h2 { font-size: 22px; font-weight: 800; color: var(--text-primary); letter-spacing: -0.5px; margin: 0; }
+.streak-badge { background: white; padding: 6px 12px; border-radius: 20px; font-size: 14px; font-weight: 700; color: var(--text-primary); display: flex; align-items: center; gap: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+
+.date-scroller { display: flex; overflow-x: auto; scrollbar-width: none; padding: 0 24px 20px 24px; gap: 16px; }
+.date-scroller::-webkit-scrollbar { display: none; }
+.date-item { display: flex; flex-direction: column; align-items: center; gap: 8px; flex-shrink: 0; }
+.day-name { font-size: 12px; font-weight: 600; color: var(--text-secondary); }
+.day-circle { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; color: var(--text-primary); border: 2px dashed #D1D5DB; transition: all 0.2s; }
+.date-item.active .day-name { color: var(--text-primary); font-weight: 800; }
+.date-item.active .day-circle { border: 2px solid var(--text-primary); background: white; }
+
+/* Carrossel de Macros */
+.carousel-container { width: 100%; position: relative; }
+.carousel-track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+.carousel-track::-webkit-scrollbar { display: none; }
+.carousel-slide { min-width: 100%; scroll-snap-align: start; padding: 0 24px; display: flex; flex-direction: column; gap: 16px; }
+
+.cal-main-card { background: var(--surface-card); border-radius: 28px; padding: 24px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 8px 30px rgba(0,0,0,0.04); }
+.cal-text { display: flex; flex-direction: column; gap: 4px; }
+.cal-number { font-size: 36px; font-weight: 800; color: var(--text-primary); line-height: 1; letter-spacing: -1px; }
+.cal-label { font-size: 14px; font-weight: 600; color: var(--text-primary); }
+
+.macros-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.macro-min-card { background: var(--surface-card); border-radius: 24px; padding: 16px 12px; display: flex; flex-direction: column; box-shadow: 0 8px 30px rgba(0,0,0,0.04); }
+.macro-val { font-size: 16px; font-weight: 800; color: var(--text-primary); margin-bottom: 2px; }
+.macro-lbl { font-size: 11px; font-weight: 500; color: var(--text-secondary); margin-bottom: 16px; white-space: nowrap; }
+
+/* ==========================================
+   OS NOVOS ANÉIS DE SVG (CANTOS ARREDONDADOS E FLUIDOS)
+   ========================================== */
+.cal-ring-container {
+    width: 80px; height: 80px; position: relative;
+    display: flex; align-items: center; justify-content: center;
+}
+.circular-chart-large { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(-90deg); }
+.circular-chart-large .circle-bg { fill: none; stroke: #F3F4F6; }
+.circular-chart-large .circle-progress { fill: none; stroke-linecap: round; transition: stroke-dashoffset 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
+.cal-ring-inner { position: relative; z-index: 1; width: 36px; height: 36px; background: #F3F4F6; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--text-primary); }
+
+.macro-icon-wrapper { 
+    width: 44px; height: 44px; align-self: center; position: relative; 
+    display: flex; align-items: center; justify-content: center; 
+}
+.circular-chart { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(-90deg); }
+.circular-chart .circle-bg { fill: none; stroke: #F3F4F6; stroke-width: 4; }
+.circular-chart .circle-progress { fill: none; stroke-width: 4; stroke-linecap: round; transition: stroke-dashoffset 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
+.macro-icon-inner { position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; font-size: 14px; }
+
+/* Cores de fundo dos emojis */
+.bg-red-light { background-color: var(--bg-red-light); }
+.bg-yellow-light { background-color: var(--bg-yellow-light); }
+.bg-blue-light { background-color: var(--bg-blue-light); }
+.bg-purple-light { background-color: var(--bg-purple-light); }
+.bg-pink-light { background-color: var(--bg-pink-light); }
+.bg-orange-light { background-color: var(--bg-orange-light); }
+
+/* Slide 2 e 3 */
+.health-score-card { background: var(--surface-card); border-radius: 28px; padding: 20px; box-shadow: 0 8px 30px rgba(0,0,0,0.04); }
+.health-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+.health-header h4 { font-size: 14px; font-weight: 700; color: var(--text-primary); }
+.health-bar { width: 100%; height: 6px; background: #F3F4F6; border-radius: 4px; margin-bottom: 12px; overflow: hidden; }
+.health-fill { height: 100%; background: var(--text-primary); border-radius: 4px; }
+.health-desc { font-size: 12px; color: var(--text-secondary); line-height: 1.5; }
+
+.activity-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.activity-card { background: var(--surface-card); border-radius: 28px; padding: 20px; box-shadow: 0 8px 30px rgba(0,0,0,0.04); display: flex; flex-direction: column; }
+.act-header { margin-bottom: 4px; }
+.act-number { font-size: 24px; font-weight: 800; color: var(--text-primary); }
+.act-total { font-size: 14px; font-weight: 600; color: var(--text-secondary); }
+.act-label { font-size: 12px; font-weight: 600; color: var(--text-primary); margin-bottom: auto; }
+
+.water-card { background: var(--surface-card); border-radius: 28px; padding: 16px 20px; box-shadow: 0 8px 30px rgba(0,0,0,0.04); display: flex; justify-content: space-between; align-items: center; }
+.water-left { display: flex; align-items: center; gap: 16px; }
+.water-icon-large { width: 48px; height: 48px; background: #EFF6FF; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 24px; }
+.water-info h4 { font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 2px; }
+.water-info span { font-size: 14px; font-weight: 600; color: var(--text-secondary); }
+.water-controls { display: flex; gap: 8px; }
+.circle-btn { width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--text-primary); background: transparent; font-size: 18px; color: var(--text-primary); display: flex; align-items: center; justify-content: center; cursor: pointer; }
+.circle-btn.btn-dark { background: var(--text-primary); color: white; }
+
+.carousel-indicators { display: flex; justify-content: center; gap: 8px; margin-top: 16px; }
+.dot { width: 6px; height: 6px; border-radius: 50%; background: #D1D5DB; transition: all 0.3s; }
+.dot.active { background: var(--text-primary); }
+
+/* ==========================================
+   OS SEUS DIFERENCIAIS (RECEITAS E TREINOS)
+   ========================================== */
+.features-section { padding: 24px; margin-top: 8px; }
+
+/* Atalhos e Botões Estilizados */
+.feature-card {
+    background: var(--surface-card); border-radius: 24px; padding: 16px 20px;
+    display: flex; align-items: center; gap: 16px; box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+    cursor: pointer; transition: transform 0.2s; border: 1px solid transparent;
+}
+.feature-card:active { transform: scale(0.98); border-color: var(--border-color); }
+
+/* Cartão de Receita */
+.recipe-image-placeholder {
+    width: 56px; height: 56px; border-radius: 16px; background: #F0FDF4;
+    display: flex; align-items: center; justify-content: center; font-size: 28px;
+}
+.recipe-info { flex: 1; display: flex; flex-direction: column; gap: 4px; }
+.recipe-title { font-size: 14px; font-weight: 700; color: var(--text-primary); }
+.recipe-macros { font-size: 12px; font-weight: 600; color: var(--text-secondary); }
+.recipe-tag { font-size: 10px; font-weight: 700; color: var(--primary); background: var(--primary-light); padding: 4px 8px; border-radius: 8px; width: fit-content; margin-top: 4px; }
+
+.action-btn {
+    width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--border-color);
+    background: transparent; color: var(--text-primary); display: flex; align-items: center; justify-content: center;
+}
+
+/* Cartão de Treino */
+.workout-icon-box {
+    width: 56px; height: 56px; border-radius: 16px; background: var(--text-primary);
+    display: flex; align-items: center; justify-content: center;
+}
+.play-btn {
+    width: 40px; height: 40px; border-radius: 50%; background: var(--text-primary);
+    color: white; border: none; display: flex; align-items: center; justify-content: center;
+}
+
+/* ==========================================
+   SUGESTÕES DO DIA (STACK CARDS - SLIDE 1)
+   ========================================== */
+.suggestions-stack-container {
+    position: relative;
+    width: 100%;
+    height: 310px; /* Altura exata para acomodar as cartas empilhadas */
+    margin-top: 8px;
+}
+
+.sug-card {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    background: var(--surface-card);
+    border-radius: 28px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+    transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1); /* Animação elástica 60fps */
+    cursor: pointer;
+    border: 1px solid var(--border-color);
+    display: flex; flex-direction: column;
+}
+
+/* Lógica de Empilhamento (O JS rotaciona essas classes) */
+.card-pos-1 { z-index: 3; transform: translate(0, 0) scale(1); opacity: 1; }
+/* A carta de trás fica puxada para a esquerda e para baixo, como no seu print */
+.card-pos-2 { z-index: 2; transform: translate(-12px, 12px) scale(0.95); opacity: 0.9; } 
+.card-pos-3 { z-index: 1; transform: translate(-24px, 24px) scale(0.90); opacity: 0.5; }
+
+/* Visual interno da Carta */
+.sug-img {
+    width: 100%; height: 160px; object-fit: cover;
+    border-radius: 28px 28px 0 0; background: #F3F4F6;
+}
+.sug-content { padding: 16px 20px; }
+.sug-title { 
+    font-size: 18px; font-weight: 800; color: var(--text-primary); 
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 8px; 
+}
+.sug-cals { 
+    display: flex; align-items: center; gap: 8px; 
+    font-size: 24px; font-weight: 800; color: var(--text-primary); margin-bottom: 12px; 
+}
+.sug-cals svg { color: var(--text-primary); width: 22px; height: 22px; }
+.sug-macros { display: flex; gap: 16px; font-size: 18px; font-weight: 800; color: var(--text-primary); }
+.sug-macros span { display: flex; align-items: center; gap: 6px; }

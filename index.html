@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitGuide - Onboarding</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        
+       <section id="step-welcome" class="screen active">
+            <div class="welcome-header">
+                <div class="lang-selector">
+                    <button id="lang-btn" class="lang-badge" onclick="toggleLangMenu()">🇧🇷 PT</button>
+                    <div id="lang-menu" class="lang-menu hidden">
+                        <button onclick="setLanguage('en')">🇺🇸 EN</button>
+                        <button onclick="setLanguage('es')">🇪🇸 ES</button>
+                        <button onclick="setLanguage('pt')">🇧🇷 PT</button>
+                    </div>
+                </div>
+                
+                <div style="margin: 40px 0; display: flex; justify-content: center; flex: 1; align-items: center;">
+                    <img src="logo.svg" alt="FitGuide Logo" style="width: 230px; height: auto;">
+                </div>
+            </div>
+            
+            <div class="welcome-content">
+                <h1 data-i18n="welcome_title">Bem-vindo ao<br>FitGuide</h1>
+                <p data-i18n="welcome_subtitle">Seu guia simples para comer melhor e treinar sem complicação</p>
+            </div>
+            
+            <div class="bottom-action">
+                <button class="btn-primary" onclick="nextStep('step-quiz-age')" data-i18n="btn_start">Começar</button>
+                <p class="login-text"><span data-i18n="already_have_account">Já tem conta?</span> <a href="app.html" data-i18n="login">Entrar</a></p>
+            </div>
+        </section>
+
+        <section id="step-quiz-age" class="screen">
+            <div class="top-bar">
+                <button class="icon-btn back-btn" onclick="nextStep('step-welcome')">←</button>
+                <div class="progress-bar"><div class="progress" style="width: 8%;"></div></div>
+            </div>
+            <div class="content-wrapper" style="display: flex; flex-direction: column; align-items: center;">
+                <h2 data-i18n="quiz_age_title">Qual é a sua idade?</h2>
+                <p class="subtitle" data-i18n="quiz_age_subtitle">Isso nos ajuda a calcular suas necessidades calóricas diárias.</p>
+                <div class="picker-container">
+                    <div class="picker-frame"></div> 
+                    <div class="scroll-picker" id="age-picker"></div>
+                </div>
+            </div>
+            <div class="bottom-action">
+                <button class="btn-primary" onclick="saveAgeAndNext()" data-i18n="btn_continue">Continuar</button>
+            </div>
+        </section>
+
+        <section id="step-quiz-weight" class="screen">
+            <div class="top-bar">
+                <button class="icon-btn back-btn" onclick="nextStep('step-quiz-age')">←</button>
+                <div class="progress-bar"><div class="progress" style="width: 16%;"></div></div>
+            </div>
+            <div class="content-wrapper" style="display: flex; flex-direction: column; align-items: center;">
+                <h2 data-i18n="quiz_weight_title">Qual é o seu peso atual?</h2>
+                <p class="subtitle" data-i18n="quiz_weight_subtitle">Usaremos para calcular suas porções ideais e ajustar seu plano de treino.</p>
+                <div class="weight-display">
+                    <span id="weight-value">70</span><span class="weight-unit" id="weight-unit-label">kg</span>
+                </div>
+                <div class="ruler-container">
+                    <div class="ruler-pointer"></div>
+                    <div class="scroll-ruler" id="weight-picker"></div>
+                </div>
+                <div class="unit-toggle">
+                    <button class="unit-btn active" onclick="setWeightUnit('kg')" id="btn-weight-kg">kg</button>
+                    <button class="unit-btn" onclick="setWeightUnit('lbs')" id="btn-weight-lbs">lbs</button>
+                </div>
+            </div>
+            <div class="bottom-action">
+                <button class="btn-primary" onclick="saveWeightAndNext()" data-i18n="btn_continue">Continuar</button>
+            </div>
+        </section>
+
+        <section id="step-quiz-height" class="screen">
+            <div class="top-bar">
+                <button class="icon-btn back-btn" onclick="nextStep('step-quiz-weight')">←</button>
+                <div class="progress-bar"><div class="progress" style="width: 24%;"></div></div>
+            </div>
+            <div class="content-wrapper">
+                <h2 data-i18n="quiz_height_title">Qual é a sua altura?</h2>
+                <p class="subtitle" data-i18n="quiz_height_subtitle">Usaremos para calcular suas porções ideais e ajustar seu plano de treino.</p>
+                <div class="height-layout">
+                    <div class="height-unit-toggle">
+                        <button class="v-unit-btn active" onclick="setHeightUnit('cm')" id="btn-height-cm">cm</button>
+                        <button class="v-unit-btn" onclick="setHeightUnit('ft')" id="btn-height-ft">ft</button>
+                    </div>
+                    <div class="height-display">
+                        <span id="height-value">160</span><span class="height-unit-label" id="height-unit-label">cm</span>
+                    </div>
+                    <div class="v-ruler-container">
+                        <div class="v-ruler-pointer"></div>
+                        <div class="scroll-v-ruler" id="height-picker"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-action">
+                <button class="btn-primary" onclick="saveHeightAndNext()" data-i18n="btn_continue">Continuar</button>
+            </div>
+        </section>
+
+        <section id="step-quiz-gender" class="screen">
+            <div class="top-bar">
+                <button class="icon-btn back-btn" onclick="nextStep('step-quiz-height')">←</button>
+                <div class="progress-bar"><div class="progress" style="width: 32%;"></div></div>
+            </div>
+            <div class="content-wrapper">
+                <h2 data-i18n="quiz_gender_title">Qual é o seu gênero?</h2>
+                <p class="subtitle" data-i18n="quiz_gender_subtitle">Ajuda a personalizar suas necessidades nutricionais e plano de treino.</p>
+                <div class="options-group">
+                    <label class="option-card">
+                        <input type="radio" name="gender" value="masculino">
+                        <div class="card-icon-content">
+                            <span class="emoji-icon bg-blue">👦</span>
+                            <span class="card-content" data-i18n="gender_male">Masculino</span>
+                        </div>
+                        <div class="radio-indicator"></div>
+                    </label>
+                    <label class="option-card">
+                        <input type="radio" name="gender" value="feminino">
+                        <div class="card-icon-content">
+                            <span class="emoji-icon bg-pink">👩</span>
+                            <span class="card-content" data-i18n="gender_female">Feminino</span>
+                        </div>
+                        <div class="radio-indicator"></div>
+                    </label>
+                    <label class="option-card selected">
+                        <input type="radio" name="gender" value="outro" checked>
+                        <div class="card-icon-content">
+                            <span class="emoji-icon bg-yellow">😶</span>
+                            <span class="card-content" data-i18n="gender_other">Prefiro não dizer</span>
+                        </div>
+                        <div class="radio-indicator"></div>
+                    </label>
+                </div>
+            </div>
+            <div class="bottom-action">
+                <button class="btn-primary" onclick="saveGenderAndNext()" data-i18n="btn_continue">Continuar</button>
+            </div>
+        </section>
+
+        <section id="step-quiz-objective" class="screen">
+            <div class="top-bar">
+                <button class="icon-btn back-btn" onclick="nextStep('step-quiz-gender')">←</button>
+                <div class="progress-bar"><div class="progress" style="width: 40%;"></div></div>
+            </div>
+            <div class="content-wrapper">
+                <h2 data-i18n="quiz_objective_title">Qual é o seu objetivo?</h2>
+                <p class="subtitle" data-i18n="quiz_objective_subtitle">Vamos criar um plano focado no seu resultado.</p>
+                <div class="options-group">
+                    <label class="option-card">
+                        <input type="radio" name="objective" value="perder">
+                        <span class="card-content" data-i18n="obj_lose">Perder peso</span>
+                        <div class="radio-indicator"></div>
+                    </label>
+                    <label class="option-card">
+                        <input type="radio" name="objective" value="ganhar">
+                        <span class="card-content" data-i18n="obj_gain">Ganhar massa muscular</span>
+                        <div class="radio-indicator"></div>
+                    </label>
+                    <label class="option-card">
+                        <input type="radio" name="objective" value="manter">
+                        <span class="card-content" data-i18n="obj_maintain">Manter peso</span>
+                        <div class="radio-indicator"></div>
+                    </label>
+                    <label class="option-card selected">
+                        <input type="radio" name="objective" value="performance" checked>
+                        <span class="card-content" data-i18n="obj_perform">Melhorar performance</span>
+                        <div class="radio-indicator"></div>
+                    </label>
+                </div>
+            </div>
+            <div class="bottom-action">
+                <button class="btn-primary" onclick="saveObjectiveAndNext()" data-i18n="btn_continue">Continuar</button>
+            </div>
+        </section>
+
+        <section id="step-quiz-routine" class="screen">
+            <div class="top-bar">
+                <button class="icon-btn back-btn" onclick="nextStep('step-quiz-objective')">←</button>
+                <div class="progress-bar"><div class="progress" style="width: 48%;"></div></div>
+            </div>
+            <div class="content-wrapper">
+                <h2 data-i18n="quiz_routine_title">Como está sua rotina hoje?</h2>
+                <p class="subtitle" data-i18n="quiz_routine_subtitle">Isso define quantas calorias você precisa.</p>
+                <div class="options-group">
+                    <label class="option-card">
+                        <input type="radio" name="routine" value="sedentary">
+                        <div class="card-text">
+                            <span class="card-content" data-i18n="routine_sedentary">Sedentário</span>
+                            <span class="card-description" data-i18n="routine_sedentary_desc">Pouco ou nenhum exercício</span>
+                        </div>
+                        <div class="radio-indicator"></div>
+                    </label>
+                    <label class="option-card">
+                        <input type="radio" name="routine" value="light">
+                        <div class="card-text">
+                            <span class="card-content" data-i18n="routine_light">Levemente ativo</span>
+                            <span class="card-description" data-i18n="routine_light_desc">Exercício leve 1-3 dias/sem</span>
+                        </div>
+                        <div class="radio-indicator"></div>
+                    </label>
+                    <label class="option-card">
+                        <input type="radio" name="routine" value="moderate">
+                        <div class="card-text">
+                            <span class="card-content" data-i18n="routine_moderate">Moderadamente ativo</span>
+                            <span class="card-description" data-i18n="routine_moderate_desc">Esportes 3-5 dias/sem</span>
+                        </div>
+                        <div class="radio-indicator"></div>
+                    </label>
+                    <label class="option-card selected">
+                        <input type="radio" name="routine" value="active" checked>
+                        <div class="card-text">
+                            <span class="card-content" data-i18n="routine_active">Muito ativo</span>
+                            <span class="card-description" data-i18n="routine_active_desc">Exercício pesado 6-7 dias/sem</span>
+                        </div>
+                        <div class="radio-indicator"></div>
+                    </label>
+                </div>
+            </div>
+            <div class="bottom-action">
+                <button class="btn-primary" onclick="saveRoutineAndNext()" data-i18n="btn_continue">Continuar</button>
+            </div>
+        </section>
+
+        <section id="step-quiz-workouts" class="screen">
+            <div class="top-bar">
+                <button class="icon-btn back-btn" onclick="nextStep('step-quiz-routine')">←</button>
+                <div class="progress-bar"><div class="progress" style="width: 56%;"></div></div>
+            </div>
+            <div class="content-wrapper">
+                <h2 data-i18n="quiz_workouts_title">Quantas vezes por semana você consegue treinar?</h2>
+                <p class="subtitle" data-i18n="quiz_workouts_subtitle">Considere o que é realista para você.</p>
+                <div class="options-group">
+                    <label class="option-card selected">
+                        <input type="radio" name="workouts" value="1_2" checked>
+                        <span class="card-content" data-i18n="workouts_1_2">1–2 vezes</span>
+                        <div class="radio-indicator"></div>
+                    </label>
+                    <label class="option-card">
+                        <input type="radio" name="workouts" value="3">
+                        <span class="card-content" data-i18n="workouts_3">3 vezes</span>
+                        <div class="radio-indicator"></div>
+                    </label>
+                    <label class="option-card">
+                        <input type="radio" name="workouts" value="4_5">
+                        <span class="card-content" data-i18n="workouts_4_5">4–5 vezes</span>
+                        <div class="radio-indicator"></div>
+                    </label>
+                    <label class="option-card">
+                        <input type="radio" name="workouts" value="0">
+                        <span class="card-content" data-i18n="workouts_0">Não treino atualmente</span>
+                        <div class="radio-indicator"></div>
+                    </label>
+                </div>
+            </div>
+            <div class="bottom-action">
+                <button class="btn-primary" onclick="saveWorkoutsAndNext()" data-i18n="btn_continue">Continuar</button>
+            </div>
+        </section>
+
+        <section id="step-quiz-diet" class="screen">
+            <div class="top-bar">
+                <button class="icon-btn back-btn" onclick="nextStep('step-quiz-workouts')">←</button>
+                <div class="progress-bar"><div class="progress" style="width: 64%;"></div></div>
+            </div>
+            <div class="content-wrapper">
+                <h2 data-i18n="quiz_diet_title">Como é sua alimentação hoje?</h2>
+                <p class="subtitle" data-i18n="quiz_diet_subtitle">Não existe resposta certa.</p>
+                <div class="options-group">
+                    <label class="option-card selected">
+                        <input type="radio" name="diet" value="irregular" checked>
+                        <span class="card-content" data-i18n="diet_irregular">Irregular</span>
+                        <div class="radio-indicator"></div>
+                    </label>
+                    <label class="option-card">
+                        <input type="radio" name="diet" value="balanced">
+                        <span class="card-content" data-i18n="diet_balanced">Balanceada na maior parte do tempo</span>
+                        <div class="radio-indicator"></div>
+                    </label>
+                    <label class="option-card">
+                        <input type="radio" name="diet" value="structured">
+                        <span class="card-content" data-i18n="diet_structured">Estruturada</span>
+                        <div class="radio-indicator"></div>
+                    </label>
+                    <label class="option-card">
+                        <input type="radio" name="diet" value="none">
+                        <span class="card-content" data-i18n="diet_none">Não sigo nenhum padrão</span>
+                        <div class="radio-indicator"></div>
+                    </label>
+                </div>
+            </div>
+            <div class="bottom-action">
+                <button class="btn-primary" onclick="saveDietAndNext()" data-i18n="btn_continue">Continuar</button>
+            </div>
+        </section>
+
+        <section id="step-quiz-side-effects" class="screen">
+            <div class="top-bar">
+                <button class="icon-btn back-btn" onclick="nextStep('step-quiz-diet')">←</button>
+                <div class="progress-bar"><div class="progress" style="width: 72%;"></div></div>
+            </div>
+            <div class="content-wrapper">
+                <h2 data-i18n="quiz_side_effects_title">Qual efeito colateral você tem mais receio?</h2>
+                <p class="subtitle" data-i18n="quiz_side_effects_subtitle">Essas informações ajudam a prevenir desconfortos.</p>
+                <div class="options-group">
+                    <label class="option-card">
+                        <input type="radio" name="side_effects" value="nausea">
+                        <span class="card-content" data-i18n="side_effects_nausea">Náusea</span>
+                        <div class="radio-indicator"></div>
+                    </label>
+                    <label class="option-card">
+                        <input type="radio" name="side_effects" value="fatigue">
+                        <span class="card-content" data-i18n="side_effects_fatigue">Fadiga</span>
+                        <div class="radio-indicator"></div>
+                    </label>
+                    <label class="option-card">
+                        <input type="radio" name="side_effects" value="constipation">
+                        <span class="card-content" data-i18n="side_effects_constipation">Constipação</span>
+                        <div class="radio-indicator"></div>
+                    </label>
+                    <label class="option-card">
+                        <input type="radio" name="side_effects" value="diarrhea">
+                        <span class="card-content" data-i18n="side_effects_diarrhea">Diarreia</span>
+                        <div class="radio-indicator"></div>
+                    </label>
+                    <label class="option-card">
+                        <input type="radio" name="side_effects" value="headache">
+                        <span class="card-content" data-i18n="side_effects_headache">Dor de cabeça</span>
+                        <div class="radio-indicator"></div>
+                    </label>
+                    <label class="option-card">
+                        <input type="radio" name="side_effects" value="reflux">
+                        <span class="card-content" data-i18n="side_effects_reflux">Refluxo</span>
+                        <div class="radio-indicator"></div>
+                    </label>
+                    <label class="option-card">
+                        <input type="radio" name="side_effects" value="loss_of_appetite">
+                        <span class="card-content" data-i18n="side_effects_loss_of_appetite">Perda de apetite</span>
+                        <div class="radio-indicator"></div>
+                    </label>
+                    <label class="option-card selected">
+                        <input type="radio" name="side_effects" value="none" checked>
+                        <span class="card-content" data-i18n="side_effects_none">Nenhum em específico</span>
+                        <div class="radio-indicator"></div>
+                    </label>
+                </div>
+            </div>
+            <div class="bottom-action">
+                <button class="btn-primary" onclick="saveSideEffectsAndNext()" data-i18n="btn_continue">Continuar</button>
+            </div>
+        </section>
+
+        <section id="step-quiz-motivation" class="screen">
+            <div class="top-bar">
+                <button class="icon-btn back-btn" onclick="nextStep('step-quiz-side-effects')">←</button>
+                <div class="progress-bar"><div class="progress" style="width: 80%;"></div></div>
+            </div>
+            <div class="content-wrapper">
+                <h2 data-i18n="quiz_motivation_title">O que está te levando a iniciar esse processo?</h2>
+                <p class="subtitle" data-i18n="quiz_motivation_subtitle">Selecione o principal motivo.</p>
+                <div class="options-group">
+                    <label class="option-card">
+                        <input type="radio" name="motivation" value="body_relation">
+                        <span class="card-content" data-i18n="mot_body_relation">Melhorar a relação com meu corpo</span>
+                        <div class="radio-indicator"></div>
+                    </label>
+                    <label class="option-card">
+                        <input type="radio" name="motivation" value="energy">
+                        <span class="card-content" data-i18n="mot_energy">Ter mais energia no dia a dia</span>
+                        <div class="radio-indicator"></div>
+                    </label>
+                    <label class="option-card">
+                        <input type="radio" name="motivation" value="health">
+                        <span class="card-content" data-i18n="mot_health">Cuidar da saúde</span>
+                        <div class="radio-indicator"></div>
+                    </label>
+                    <label class="option-card">
+                        <input type="radio" name="motivation" value="new_beginning">
+                        <span class="card-content" data-i18n="mot_new_beginning">Um novo começo</span>
+                        <div class="radio-indicator"></div>
+                    </label>
+                    <label class="option-card">
+                        <input type="radio" name="motivation" value="specific_event">
+                        <span class="card-content" data-i18n="mot_specific_event">Um evento específico</span>
+                        <div class="radio-indicator"></div>
+                    </label>
+                    <label class="option-card selected">
+                        <input type="radio" name="motivation" value="other" checked>
+                        <span class="card-content" data-i18n="mot_other">Outro motivo pessoal</span>
+                        <div class="radio-indicator"></div>
+                    </label>
+                </div>
+            </div>
+            <div class="bottom-action">
+                <button class="btn-primary" onclick="saveMotivationAndNext()" data-i18n="btn_continue">Continuar</button>
+            </div>
+        </section>
+
+        <section id="step-quiz-pace" class="screen">
+            <div class="top-bar">
+                <button class="icon-btn back-btn" onclick="nextStep('step-quiz-motivation')">←</button>
+                <div class="progress-bar"><div class="progress" style="width: 90%;"></div></div>
+            </div>
+            <div class="content-wrapper">
+                <h2 data-i18n="quiz_pace_title">Qual ritmo você considera adequado?</h2>
+                <p class="subtitle" data-i18n="quiz_pace_subtitle">Resultados consistentes tendem a ser progressivos.</p>
+                <div class="options-group">
+                    <label class="option-card selected">
+                        <input type="radio" name="pace" value="gradual" checked>
+                        <span class="card-content" data-i18n="pace_gradual">Gradual e sustentável</span>
+                        <div class="radio-indicator"></div>
+                    </label>
+                    <label class="option-card">
+                        <input type="radio" name="pace" value="moderate">
+                        <span class="card-content" data-i18n="pace_moderate">Moderado</span>
+                        <div class="radio-indicator"></div>
+                    </label>
+                    <label class="option-card">
+                        <input type="radio" name="pace" value="unknown">
+                        <span class="card-content" data-i18n="pace_unknown">Não sei informar</span>
+                        <div class="radio-indicator"></div>
+                    </label>
+                </div>
+            </div>
+            <div class="bottom-action">
+                <button class="btn-primary" onclick="savePaceAndNext()" data-i18n="btn_continue">Continuar</button>
+            </div>
+        </section>
+
+        <section id="step-quiz-restrictions" class="screen">
+            <div class="top-bar">
+                <button class="icon-btn back-btn" onclick="nextStep('step-quiz-pace')">←</button>
+                <div class="progress-bar"><div class="progress" style="width: 100%;"></div></div>
+            </div>
+            <div class="content-wrapper">
+                <h2 data-i18n="quiz_restrictions_title">Você tem restrições alimentares?</h2>
+                <p class="subtitle" data-i18n="quiz_restrictions_subtitle">Selecione a opção que melhor te descreve.</p>
+                <div class="options-group">
+                    <label class="option-card selected">
+                        <input type="radio" name="restriction" value="none" checked>
+                        <span class="card-content" data-i18n="rest_none">Nenhuma restrição</span>
+                        <div class="radio-indicator"></div>
+                    </label>
+                    <label class="option-card">
+                        <input type="radio" name="restriction" value="vegetarian">
+                        <span class="card-content" data-i18n="rest_vegetarian">Vegetariano</span>
+                        <div class="radio-indicator"></div>
+                    </label>
+                    <label class="option-card">
+                        <input type="radio" name="restriction" value="vegan">
+                        <span class="card-content" data-i18n="rest_vegan">Vegano</span>
+                        <div class="radio-indicator"></div>
+                    </label>
+                    <div class="allergy-wrapper" style="margin-top: 12px;">
+                        <div class="option-card alert-card" id="btn-allergy-toggle" onclick="toggleAllergy()">
+                            <div class="card-icon-content text-danger">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                                <span class="card-content" data-i18n="rest_allergies" style="color: inherit;">Tenho alergias</span>
+                            </div>
+                            <span class="text-danger" id="allergy-icon" style="font-size: 24px; line-height: 0.5; font-weight: 400;">＋</span>
+                        </div>
+                        <div class="allergy-content hidden" id="allergy-content" style="margin-top: 12px;">
+                            <textarea id="allergy-text" class="alert-textarea" placeholder="Quais alergias? Ex: Amendoim, Camarão, Intolerância à lactose..." data-i18n-placeholder="rest_allergies_placeholder"></textarea>
+                            <p class="warning-text text-danger" data-i18n="rest_allergies_warning">ESSES ALIMENTOS SERÃO COMPLETAMENTE REMOVIDOS DO SEU PLANO.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-action">
+                <button class="btn-primary" onclick="saveRestrictionsAndNext()" data-i18n="btn_continue">Continuar</button>
+            </div>
+        </section>
+
+        <section id="step-paywall" class="screen paywall-bg">
+            <div class="top-bar">
+                <button class="icon-btn back-btn text-white" onclick="nextStep('step-quiz-restrictions')">✕</button>
+            </div>
+            <div class="paywall-content">
+                <div class="paywall-card">
+                    <h2 data-i18n="paywall_title">Monitore diariamente cada dose</h2>
+                    <h3 class="price"><span data-i18n="price_value">R$ 12,49 /mês</span> <span class="light-price" data-i18n="price_weekly">(R$ 3,12/semana)</span></h3>
+                    <button class="btn-primary btn-unlock" onclick="window.location.href='app.html'" data-i18n="btn_start_journey_lock">COMEÇAR MINHA JORNADA 🔒</button>
+                    <a href="#" class="view-plans" onclick="togglePlansModal()" data-i18n="view_plans">VER OS PLANOS</a>
+                    <div class="legal-links">
+                        <span data-i18n="terms">Termos</span> • <span data-i18n="privacy">Privacidade</span> • <span data-i18n="restore">Restaurar</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="plans-modal" class="plans-modal hidden">
+                <div class="plans-modal-backdrop" onclick="togglePlansModal()"></div>
+                <div class="plans-modal-content">
+                    <button class="close-plans-btn" onclick="togglePlansModal()">✕</button>
+                    <div class="plans-options-container">
+                        <label class="plan-option selected">
+                            <div class="plan-badge" data-i18n="save_50">ECONOMIZE 50%</div>
+                            <input type="radio" name="plan" value="annual" checked>
+                            <div class="plan-left">
+                                <div class="plan-radio"></div>
+                                <span class="plan-title" data-i18n="plan_annual">Plano anual</span>
+                            </div>
+                            <div class="plan-right">
+                                <span class="plan-price-value" data-i18n="price_annual_monthly">R$ 12,49</span>
+                                <span class="plan-price-period" data-i18n="per_month">por mês</span>
+                            </div>
+                        </label>
+                        <label class="plan-option">
+                            <input type="radio" name="plan" value="monthly">
+                            <div class="plan-left">
+                                <div class="plan-radio"></div>
+                                <span class="plan-title" data-i18n="plan_monthly">Plano mensal</span>
+                            </div>
+                            <div class="plan-right">
+                                <span class="plan-price-value" data-i18n="price_monthly_monthly">R$ 24,90</span>
+                                <span class="plan-price-period" data-i18n="per_month">por mês</span>
+                            </div>
+                        </label>
+                    </div>
+                    <button class="btn-primary btn-unlock" onclick="window.location.href='app.html'" data-i18n="btn_start_journey_lock">COMEÇAR MINHA JORNADA 🔒</button>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="JavaScript.js"></script>
+</body>
+</html>

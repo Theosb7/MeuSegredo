@@ -1,0 +1,157 @@
+/* ==========================================
+   PROGRESS SCREEN STYLES (LIGHT MODE)
+   ========================================== */
+
+#tab-progress {
+    /* Puxa o mesmo gradiente de fundo da tela de Início */
+    background: linear-gradient(to bottom, #F0E8ED 0%, #F9FAFB 25%);
+    color: var(--text-dark);
+}
+
+.progress-header {
+    padding: 24px 24px 16px 24px;
+    position: sticky; top: 0; z-index: 10;
+    background: transparent; /* Deixa o gradiente de fundo aparecer */
+}
+
+.progress-header h2 { font-size: 28px; font-weight: 800; color: var(--text-dark); margin: 0; letter-spacing: -0.5px; }
+
+.progress-body {
+    padding: 0 20px 40px 20px;
+    display: flex; flex-direction: column; gap: 16px;
+    overflow-y: auto;
+}
+
+/* Grids e Cartões (Estilo Dashboard Light) */
+.progress-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+/* 1. MÁGICA DOS CARTÕES QUADRADOS AQUI */
+.progress-grid-2 .prog-card {
+    min-height: 220px;
+    justify-content: center;
+}
+
+.prog-card {
+    background: var(--card-bg); /* Fundo branco */
+    border-radius: 28px; padding: 20px;
+    display: flex; flex-direction: column;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.04); /* Sombra suave idêntica ao dashboard */
+}
+
+.prog-label { font-size: 12px; font-weight: 600; color: var(--text-muted); text-align: center; margin-bottom: 8px; }
+.prog-value { font-size: 24px; font-weight: 800; color: var(--text-dark); text-align: center; margin-bottom: 16px; }
+
+/* 2. MÁGICA DA BARRA MAIS GROSSA E COR PRIMÁRIA AQUI */
+.prog-bar-bg { width: 100%; height: 12px; background: #F3F4F6; border-radius: 6px; margin-bottom: 12px; }
+.prog-bar-fill { height: 100%; background: var(--primary); border-radius: 6px; }
+
+.prog-meta-row { display: flex; justify-content: center; font-size: 11px; color: var(--text-muted); margin-bottom: 16px; }
+.prog-meta-row strong { color: var(--text-dark); font-weight: 700; margin-left: 4px; }
+
+.prog-footer-text { font-size: 10px; font-weight: 600; color: #9CA3AF; text-align: center; }
+
+/* Sequência de Fogo */
+.flex-center { align-items: center; justify-content: center; }
+.fire-icon-wrapper { position: relative; font-size: 56px; line-height: 1; margin-bottom: 12px; filter: drop-shadow(0 4px 12px rgba(245, 158, 11, 0.3)); }
+.fire-number { position: absolute; top: 55%; left: 50%; transform: translate(-50%, -50%); font-size: 18px; font-weight: 800; color: #FFFFFF; }
+.highlight-orange { color: #F59E0B; }
+
+/* 3. MÁGICA DOS DIAS DA SEMANA MAIORES AQUI */
+.week-dots { display: flex; width: 100%; justify-content: space-between; margin-top: 16px; padding: 0 4px; }
+.w-dot-col { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.w-dot-col span { font-size: 11px; font-weight: 800; color: var(--text-muted); }
+.w-dot { width: 20px; height: 20px; border-radius: 50%; background: #F3F4F6; } /* Bolinhas maiores */
+
+/* ==========================================
+   FILTROS EXPANSÍVEIS (SEGMENTED CONTROL)
+   ========================================== */
+.prog-tabs-bar {
+    display: flex;
+    background: #F3F4F6; /* Fundo da barra inteira */
+    border-radius: 20px;
+    padding: 4px;
+    gap: 4px;
+    margin: 8px 0 16px 0;
+    width: 100%;
+}
+
+.prog-tab {
+    flex: 1; /* Inativos dividem o espaço por igual */
+    background: transparent; 
+    color: var(--text-muted); 
+    border: none;
+    padding: 8px 4px; 
+    border-radius: 16px; 
+    font-size: 12px; 
+    font-weight: 700;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis; /* Bota os "..." sozinho se faltar espaço! */
+    cursor: pointer; 
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1); /* Animação fluida e elástica */
+}
+
+.prog-tab.active {
+    flex: 2.2; /* O botão ativo rouba mais do dobro de espaço da barra */
+    background: var(--text-dark); 
+    color: white; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Gráficos e Linhas */
+.card-header-row { display: flex; justify-content: space-between; align-items: center; }
+.card-title-white { font-size: 16px; font-weight: 700; color: var(--text-dark); }
+.prog-badge {
+    background: transparent; color: var(--text-muted); border: 1px solid var(--border-color);
+    padding: 4px 8px; border-radius: 8px; font-size: 11px; font-weight: 600;
+    display: flex; align-items: center; gap: 4px;
+}
+
+.chart-container { position: relative; width: 100%; margin-top: 24px; display: flex; flex-direction: column; gap: 24px; margin-bottom: 16px; }
+.large-chart { gap: 32px; margin-top: 16px; }
+.chart-grid-line { display: flex; align-items: center; gap: 12px; width: 100%; }
+.chart-grid-line span { font-size: 11px; color: var(--text-muted); width: 24px; text-align: right; }
+.dashed-line { flex: 1; border-bottom: 1px dashed #E5E7EB; } /* Linhas pontilhadas claras */
+.chart-solid-line { position: absolute; left: 36px; right: 0; height: 2px; background: var(--text-dark); z-index: 2; border-radius: 1px; }
+
+.x-axis-labels { display: flex; justify-content: space-between; padding-left: 36px; margin-top: -8px; }
+.x-axis-labels span { font-size: 11px; color: var(--text-muted); }
+
+.motivational-text { font-size: 11px; font-weight: 700; color: #10B981; text-align: center; margin-top: 16px; }
+
+/* Cartão de Fotos */
+.section-title-prog { font-size: 16px; font-weight: 700; color: var(--text-dark); margin-top: 8px; margin-bottom: -4px;}
+.photo-card { flex-direction: row; gap: 16px; }
+.photo-icon-box { width: 56px; height: 72px; background: #F3F4F6; border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+.photo-info { flex: 1; display: flex; flex-direction: column; gap: 8px; }
+.photo-info p { font-size: 12px; color: var(--text-muted); line-height: 1.4; font-weight: 500; }
+.btn-prog-action { background: transparent; border: 1px solid var(--border-color); color: var(--text-dark); padding: 8px 16px; border-radius: 20px; font-size: 12px; font-weight: 700; width: fit-content; cursor: pointer; }
+
+/* Calorias */
+.calories-val { font-size: 32px; font-weight: 800; color: var(--text-dark); display: flex; align-items: baseline; gap: 4px; line-height: 1; }
+.calories-val span { font-size: 14px; font-weight: 600; color: var(--text-muted); }
+.chart-legend { display: flex; justify-content: center; gap: 16px; margin-top: 16px; }
+.legend-item { font-size: 11px; font-weight: 600; color: var(--text-dark); display: flex; align-items: center; gap: 4px; }
+.lg-icon { font-size: 14px; }
+
+/* Cartão IMC */
+.imc-value-row { display: flex; align-items: baseline; gap: 8px; margin-bottom: 24px; }
+.imc-number { font-size: 32px; font-weight: 800; color: var(--text-dark); line-height: 1; }
+.imc-desc { font-size: 12px; font-weight: 500; color: var(--text-muted); }
+.imc-badge { padding: 4px 8px; border-radius: 6px; font-size: 11px; font-weight: 700; }
+.blue-badge { background: #0EA5E9; color: white; }
+
+/* Barra Gradiente do IMC */
+.imc-gradient-bar-container { position: relative; width: 100%; height: 24px; margin-bottom: 16px; }
+.imc-gradient-bar { 
+    width: 100%; height: 6px; border-radius: 3px; position: absolute; top: 50%; transform: translateY(-50%);
+    background: linear-gradient(to right, #0EA5E9 0%, #10B981 33%, #F59E0B 66%, #EF4444 100%);
+}
+.imc-marker {
+    position: absolute; top: 0; width: 3px; height: 100%; background: var(--text-dark); border-radius: 2px;
+    box-shadow: 0 0 4px rgba(255,255,255,0.8);
+}
+
+.imc-legend { display: flex; justify-content: space-between; }
+.imc-legend span { font-size: 10px; font-weight: 600; color: var(--text-muted); display: flex; align-items: center; gap: 4px; }
+.dot-c { width: 6px; height: 6px; border-radius: 50%; }

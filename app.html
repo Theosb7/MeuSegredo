@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>FitGuide - App</title>
+    <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="workout.css">
+    <link rel="stylesheet" href="scanner.css">
+    <link rel="stylesheet" href="progress.css">
+    <link rel="stylesheet" href="diet.css">
+    <link rel="stylesheet" href="recentes.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app-container">
+
+        <div id="fab-overlay" class="fab-overlay" onclick="toggleFabMenu()"></div>
+
+        <div id="fab-menu" class="fab-menu">
+            <button class="fab-action-btn" onclick="handleFabAction('type')">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </button>
+            <button class="fab-action-btn" onclick="handleFabAction('gallery')">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+            </button>
+            <button class="fab-action-btn" onclick="handleFabAction('type')">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+            </button>
+            <button class="fab-action-btn" onclick="handleFabAction('camera')">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+            </button>
+        </div>
+        
+        <main id="main-content">
+            
+            <section id="tab-dashboard" class="app-screen active">
+                
+                <header class="dash-header">
+                    <div class="header-brand">
+                        <img src="logo.svg" alt="FitGuide" class="app-logo">
+                        <h2>FitGuide</h2>
+                    </div>
+                    <div class="streak-badge">
+                        <span>🔥</span> 0
+                    </div>
+                </header>
+
+                <div class="date-scroller" id="date-scroller">
+                    </div>
+
+                <div class="carousel-container">
+                    <div class="carousel-track" id="stats-carousel">
+                        
+                        <div class="carousel-slide">
+                            <div class="cal-main-card">
+                                <div class="cal-text">
+                                    <span class="cal-number" id="dash-cal-val">2306</span>
+                                    <span class="cal-label">Calorias rest.</span>
+                                </div>
+                                <div class="cal-ring-container">
+                                    <svg class="circular-chart-large" viewBox="0 0 80 80">
+                                        <circle class="circle-bg" cx="40" cy="40" r="34" stroke-width="8"></circle>
+                                        <circle class="circle-progress" id="dash-cal-ring" cx="40" cy="40" r="34" stroke-width="8" stroke="#111827"></circle>
+                                    </svg>
+                                    <div class="cal-ring-inner">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0011 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 11-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 002.5 2.5z"></path></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="macros-grid">
+                                <div class="macro-min-card">
+                                    <span class="macro-val" id="dash-prot-val">129g</span>
+                                    <span class="macro-lbl">Proteínas rest.</span>
+                                    <div class="macro-icon-wrapper">
+                                        <svg class="circular-chart" viewBox="0 0 44 44"><circle class="circle-bg" cx="22" cy="22" r="18"></circle><circle class="circle-progress" id="dash-prot-ring" cx="22" cy="22" r="18" stroke="#EF4444"></circle></svg>
+                                        <div class="macro-icon-inner bg-red-light">🍗</div>
+                                    </div>
+                                </div>
+                                <div class="macro-min-card">
+                                    <span class="macro-val" id="dash-carb-val">303g</span>
+                                    <span class="macro-lbl">Carbos rest.</span>
+                                    <div class="macro-icon-wrapper">
+                                        <svg class="circular-chart" viewBox="0 0 44 44"><circle class="circle-bg" cx="22" cy="22" r="18"></circle><circle class="circle-progress" id="dash-carb-ring" cx="22" cy="22" r="18" stroke="#F59E0B"></circle></svg>
+                                        <div class="macro-icon-inner bg-yellow-light">🌾</div>
+                                    </div>
+                                </div>
+                                <div class="macro-min-card">
+                                    <span class="macro-val" id="dash-fat-val">64g</span>
+                                    <span class="macro-lbl">Gorduras rest.</span>
+                                    <div class="macro-icon-wrapper">
+                                        <svg class="circular-chart" viewBox="0 0 44 44"><circle class="circle-bg" cx="22" cy="22" r="18"></circle><circle class="circle-progress" id="dash-fat-ring" cx="22" cy="22" r="18" stroke="#3B82F6"></circle></svg>
+                                        <div class="macro-icon-inner bg-blue-light">🥑</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="carousel-slide">
+                            <div class="macros-grid">
+                                <div class="macro-min-card">
+                                    <span class="macro-val" id="dash-fib-val">38g</span>
+                                    <span class="macro-lbl">Fibras rest.</span>
+                                    <div class="macro-icon-wrapper">
+                                        <svg class="circular-chart" viewBox="0 0 44 44"><circle class="circle-bg" cx="22" cy="22" r="18"></circle><circle class="circle-progress" id="dash-fib-ring" cx="22" cy="22" r="18" stroke="#A855F7"></circle></svg>
+                                        <div class="macro-icon-inner bg-purple-light">🫐</div>
+                                    </div>
+                                </div>
+                                <div class="macro-min-card">
+                                    <span class="macro-val" id="dash-sug-val">87g</span>
+                                    <span class="macro-lbl">Açúcar rest.</span>
+                                    <div class="macro-icon-wrapper">
+                                        <svg class="circular-chart" viewBox="0 0 44 44"><circle class="circle-bg" cx="22" cy="22" r="18"></circle><circle class="circle-progress" id="dash-sug-ring" cx="22" cy="22" r="18" stroke="#EC4899"></circle></svg>
+                                        <div class="macro-icon-inner bg-pink-light">🥄</div>
+                                    </div>
+                                </div>
+                                <div class="macro-min-card">
+                                    <span class="macro-val" id="dash-sod-val">2300mg</span>
+                                    <span class="macro-lbl">Sódio rest.</span>
+                                    <div class="macro-icon-wrapper">
+                                        <svg class="circular-chart" viewBox="0 0 44 44"><circle class="circle-bg" cx="22" cy="22" r="18"></circle><circle class="circle-progress" id="dash-sod-ring" cx="22" cy="22" r="18" stroke="#F97316"></circle></svg>
+                                        <div class="macro-icon-inner bg-orange-light">🧂</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="health-score-card">
+                                <div class="health-header"><h4>Health score</h4><span>0/10</span></div>
+                                <div class="health-bar"><div class="health-fill" style="width: 0%;"></div></div>
+                                <p class="health-desc">Carbos e gorduras estão no caminho certo. Você está com poucas calorias e proteínas.</p>
+                            </div>
+                        </div>
+
+                        <div class="carousel-slide">
+                            <div class="activity-grid">
+                                <div class="activity-card"><div class="act-header"><span class="act-number">0</span><span class="act-total">/10000</span></div><span class="act-label">Passos Hoje</span></div>
+                                <div class="activity-card right-card"><div class="burned-header"><span>🔥</span><span class="act-number">0</span></div><span class="act-label">Calorias gastas</span></div>
+                            </div>
+                            <div class="water-card">
+                                <div class="water-left"><div class="water-icon-large">💧</div><div class="water-info"><h4>Água</h4><span id="water-amount">0 ml</span></div></div>
+                                <div class="water-controls"><button class="circle-btn" onclick="updateWater(-250)">-</button><button class="circle-btn btn-dark" onclick="updateWater(250)">+</button></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-indicators" id="carousel-dots">
+                        <span class="dot active"></span><span class="dot"></span><span class="dot"></span>
+                    </div>
+                </div>
+
+                <div id="dashboard-bottom-area" style="padding: 0 24px 24px 24px; margin-top: 24px;">
+                    
+                    <div id="slide-sugestoes">
+                        <div class="section-header-row" style="margin-top: 0;">
+                            <h3 class="section-title">Sugestões do dia</h3>
+                            <span class="link-action" style="cursor: pointer;" onclick="switchTab('tab-diet', document.getElementById('nav-diet'))">VER MAIS</span>
+                        </div>
+                        
+                        <div class="suggestions-stack-container" id="suggestions-stack">
+                            </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="tab-workout" class="app-screen">
+                
+                <header class="app-header">
+                    <h2>Meus Treinos</h2>
+                    <button class="icon-btn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                    </button>
+                </header>
+
+                <div class="date-scroller" id="workout-date-scroller">
+                    </div>
+
+                <div class="screen-body">
+
+                    <div class="workout-carousel-container">
+                        <div class="workout-carousel-track" id="workout-hero-carousel">
+                            
+                            <div class="workout-carousel-slide">
+                                <div class="workout-hero-card">
+                                    <div class="hero-top">
+                                        <span class="ai-badge">✨ Feito sob medida (IA)</span>
+                                    </div>
+                                    <h3 class="hero-title">Peito, Ombros e Tríceps</h3>
+                                    <div class="hero-details">
+                                        <span>⏱ 45 min</span>
+                                        <span class="dot-separator">•</span>
+                                        <span>🔥 Alta intensidade</span>
+                                    </div>
+                                    <button class="btn-start-workout">COMEÇAR TREINO</button>
+                                </div>
+                            </div>
+
+                            <div class="workout-carousel-slide">
+                                <div class="workout-hero-card generate-card" onclick="openGenerateModal()">
+                                    <div class="hero-top">
+                                        <span class="ai-badge dark-badge">🤖 Inteligência Artificial</span>
+                                    </div>
+                                    <h3 class="hero-title" style="color: var(--text-dark);">Gerar Novo Treino</h3>
+                                    <div class="hero-details" style="color: var(--text-muted); margin-bottom: 20px;">
+                                        <span>Crie uma nova rotina baseada na sua semana</span>
+                                    </div>
+                                    <button class="btn-start-workout btn-dark-outline">CONFIGURAR PARÂMETROS</button>
+                                </div>
+                            </div>
+
+                        </div>
+                        
+                        <div class="carousel-indicators" id="workout-carousel-dots">
+                            <span class="dot active"></span>
+                            <span class="dot"></span>
+                        </div>
+                    </div>
+
+                    <div class="section-header-row">
+                        <h3 class="section-title">Exercícios (4)</h3>
+                    </div>
+
+                    <div class="exercise-list-container">
+                        <div class="exercise-card">
+                            <div class="ex-image-box">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 6.5h11M6.5 17.5h11M5 4v16M19 4v16M9 9h6v6H9z"></path></svg>
+                            </div>
+                            <div class="ex-info">
+                                <h4>Supino Reto com Halteres</h4>
+                                <p>3 séries • 10 a 12 reps</p>
+                            </div>
+                            <button class="ex-action-btn" onclick="openSwapModal(this, 'Peitoral')">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3l4 4-4 4"></path><path d="M3 7h18"></path><path d="M7 21l-4-4 4-4"></path><path d="M21 17H3"></path></svg>
+                            </button>
+                        </div>
+
+                        <div class="exercise-card">
+                            <div class="ex-image-box">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 6.5h11M6.5 17.5h11M5 4v16M19 4v16M9 9h6v6H9z"></path></svg>
+                            </div>
+                            <div class="ex-info">
+                                <h4>Crucifixo Inclinado</h4>
+                                <p>3 séries • 12 reps</p>
+                            </div>
+                            <button class="ex-action-btn" onclick="openSwapModal(this, 'Peitoral')">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3l4 4-4 4"></path><path d="M3 7h18"></path><path d="M7 21l-4-4 4-4"></path><path d="M21 17H3"></path></svg>
+                            </button>
+                        </div>
+
+                        <div class="exercise-card">
+                            <div class="ex-image-box">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
+                            </div>
+                            <div class="ex-info">
+                                <h4>Desenvolvimento Lateral</h4>
+                                <p>4 séries • 15 reps</p>
+                            </div>
+                            <button class="ex-action-btn" onclick="openSwapModal(this, 'Ombros')">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3l4 4-4 4"></path><path d="M3 7h18"></path><path d="M7 21l-4-4 4-4"></path><path d="M21 17H3"></path></svg>
+                            </button>
+                        </div>
+
+                        <div class="exercise-card">
+                            <div class="ex-image-box">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 6.5h11M6.5 17.5h11M5 4v16M19 4v16M9 9h6v6H9z"></path></svg>
+                            </div>
+                            <div class="ex-info">
+                                <h4>Tríceps na Polia</h4>
+                                <p>3 séries • Falha</p>
+                            </div>
+                            <button class="ex-action-btn" onclick="openSwapModal(this, 'Tríceps')">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3l4 4-4 4"></path><path d="M3 7h18"></path><path d="M7 21l-4-4 4-4"></path><path d="M21 17H3"></path></svg>
+                            </button>
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="tab-camera" class="app-screen">
+                
+                <video id="camera-stream" class="camera-feed" autoplay playsinline></video>
+
+                <div class="camera-ui">
+                    <div class="camera-top-bar">
+                        <button class="cam-icon-btn dark-cam-btn" onclick="switchTab('tab-dashboard', document.getElementById('nav-dashboard'))">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                        </button>
+                        
+                        <button class="cam-icon-btn dark-cam-btn">
+                            <span style="color: white; font-weight: 600; font-size: 16px;">?</span>
+                        </button>
+                    </div>
+
+                    <div class="focus-frame-container">
+                        <div class="focus-frame">
+                            <div class="corner top-left"></div>
+                            <div class="corner top-right"></div>
+                            <div class="corner bottom-left"></div>
+                            <div class="corner bottom-right"></div>
+                            <div class="scan-laser" id="scan-laser"></div>
+                        </div>
+                    </div>
+
+                    <div class="camera-bottom-section">
+                        
+                        <div class="scanner-mode-pill">
+                            <button class="mode-btn active">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06Z"></path><path d="M10 2c1 .5 2 2 2 5"></path></svg>
+                                <span>Scan Food</span>
+                            </button>
+                            <button class="mode-btn">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5v14"></path><path d="M8 5v14"></path><path d="M12 5v14"></path><path d="M17 5v14"></path><path d="M21 5v14"></path></svg>
+                            </button>
+                            <button class="mode-btn">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                            </button>
+                            <button class="mode-btn">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
+                            </button>
+                        </div>
+
+                        <div class="camera-capture-row">
+                            <button class="cam-icon-btn outline-cam-btn" id="flash-btn" onclick="this.classList.toggle('active')">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                            </button>
+                            
+                            <button class="capture-btn" onclick="simulateScan()">
+                                <div class="capture-btn-inner"></div>
+                            </button>
+                            
+                            <div style="width: 48px;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="analyzing-overlay" class="analyzing-overlay">
+                    <div class="ai-spinner">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path></svg>
+                    </div>
+                    <h3 class="mt-16 text-white">Analisando...</h3>
+                    <p class="text-gray-400 text-sm mt-8">A Inteligência Artificial está calculando os macros.</p>
+                </div>
+
+                <div id="scan-result-modal" class="modal-overlay" style="z-index: 1000;">
+                    <div class="bottom-sheet">
+                        <div class="sheet-header">
+                            <h3>Prato Identificado</h3>
+                            <button class="icon-btn" onclick="closeScanResult()">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                            </button>
+                        </div>
+                        
+                        <div class="scanned-food-info">
+                            <div class="feature-card" style="margin-bottom: 24px; cursor: default; transform: none; box-shadow: none; border: 1px solid var(--border-color);">
+                                <div class="recipe-image-placeholder"><span>🥗</span></div>
+                                <div class="recipe-info">
+                                    <h4 class="recipe-title">Salada de Frango Grelhado</h4>
+                                    <p class="recipe-macros">Porção estimada: 350g</p>
+                                    <span class="recipe-tag" style="background: #ECFDF5; color: #10B981;">98% de Precisão</span>
+                                </div>
+                            </div>
+
+                            <h4 class="section-title" style="font-size: 14px;">Macros Calculados</h4>
+                            <div class="macros-grid" style="margin-bottom: 24px;">
+                                <div class="macro-min-card" style="background: #F8FAFC;"><span class="macro-val">320</span><span class="macro-lbl">Calorias</span></div>
+                                <div class="macro-min-card" style="background: #FEF2F2;"><span class="macro-val">35g</span><span class="macro-lbl">Proteínas</span></div>
+                                <div class="macro-min-card" style="background: #FEF3C7;"><span class="macro-val">12g</span><span class="macro-lbl">Carbos</span></div>
+                                <div class="macro-min-card" style="background: #DBEAFE;"><span class="macro-val">15g</span><span class="macro-lbl">Gorduras</span></div>
+                            </div>
+
+                            <button class="btn-submit-gen" onclick="addToDiet()">Registrar no Diário</button>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <section id="tab-diet" class="app-screen">
+                <header class="app-header">
+                    <h2>Banco de Alimentos</h2>
+                </header>
+
+                <div class="screen-body diet-body">
+                    <div class="search-input-wrapper">
+                        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                        <input type="text" id="main-food-search" class="food-search-input" placeholder="Buscar receitas, produtos..." onkeyup="searchMainDatabase()">
+                    </div>
+
+                    <div id="main-food-results" class="food-results-list">
+                        <div class="empty-state-search">
+                            <span style="font-size: 48px; display: block; text-align: center; margin-top: 40px;">🥗</span>
+                            <p class="placeholder-text" style="margin-top: 16px;">Consulte calorias, macros, sódio e muito mais em nosso banco de dados.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <section id="tab-recentes" class="app-screen">
+                <header class="app-header">
+                    <button class="icon-btn" style="margin-right: auto; margin-left: -8px;" onclick="switchTab('tab-diet', null)">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                    </button>
+                    <h2 style="margin-right: auto;">Adicionados</h2>
+                </header>
+
+                <div class="screen-body">
+                    <div class="recent-summary-hero">
+                        <div class="cal-main-card" style="box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+                            <div class="cal-text">
+                                <span class="cal-number" id="recent-cal-val">2306</span>
+                                <span class="cal-label">Calorias rest.</span>
+                            </div>
+                            <div class="cal-ring-container">
+                                <svg class="circular-chart-large" viewBox="0 0 80 80">
+                                    <circle class="circle-bg" cx="40" cy="40" r="34" stroke-width="8"></circle>
+                                    <circle class="circle-progress" id="recent-cal-ring" cx="40" cy="40" r="34" stroke-width="8" stroke="#111827"></circle>
+                                </svg>
+                                <div class="cal-ring-inner">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0011 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 11-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 002.5 2.5z"></path></svg>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="macros-grid">
+                            <div class="macro-min-card" style="box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+                                <span class="macro-val" id="recent-prot-val">129g</span>
+                                <span class="macro-lbl">Proteínas rest.</span>
+                                <div class="macro-icon-wrapper">
+                                    <svg class="circular-chart" viewBox="0 0 44 44"><circle class="circle-bg" cx="22" cy="22" r="18"></circle><circle class="circle-progress" id="recent-prot-ring" cx="22" cy="22" r="18" stroke="#EF4444"></circle></svg>
+                                    <div class="macro-icon-inner bg-red-light">🍗</div>
+                                </div>
+                            </div>
+                            <div class="macro-min-card" style="box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+                                <span class="macro-val" id="recent-carb-val">303g</span>
+                                <span class="macro-lbl">Carbos rest.</span>
+                                <div class="macro-icon-wrapper">
+                                    <svg class="circular-chart" viewBox="0 0 44 44"><circle class="circle-bg" cx="22" cy="22" r="18"></circle><circle class="circle-progress" id="recent-carb-ring" cx="22" cy="22" r="18" stroke="#F59E0B"></circle></svg>
+                                    <div class="macro-icon-inner bg-yellow-light">🌾</div>
+                                </div>
+                            </div>
+                            <div class="macro-min-card" style="box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+                                <span class="macro-val" id="recent-fat-val">64g</span>
+                                <span class="macro-lbl">Gorduras rest.</span>
+                                <div class="macro-icon-wrapper">
+                                    <svg class="circular-chart" viewBox="0 0 44 44"><circle class="circle-bg" cx="22" cy="22" r="18"></circle><circle class="circle-progress" id="recent-fat-ring" cx="22" cy="22" r="18" stroke="#3B82F6"></circle></svg>
+                                    <div class="macro-icon-inner bg-blue-light">🥑</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="section-title" style="margin-top: 24px;">Comido recentemente</h3>
+                    <div id="recent-foods-list" class="recent-foods-list">
+                        <p class="placeholder-text" style="margin-top: 0;">Nenhum alimento registrado hoje.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="tab-progress" class="app-screen">
+                
+                <header class="progress-header">
+                    <h2>Progresso</h2>
+                </header>
+
+                <div class="progress-body">
+                    
+                    <div class="progress-grid-2">
+                        <div class="prog-card">
+                            <span class="prog-label">Meu peso</span>
+                            <h3 class="prog-value">55 kg</h3>
+                            <div class="prog-bar-bg"><div class="prog-bar-fill" style="width: 30%;"></div></div>
+                            <div class="prog-meta-row">
+                                <span>Meta <strong>70 kg</strong></span>
+                            </div>
+                            <div class="prog-footer-text">Próxima pesagem: 1d</div>
+                        </div>
+
+                        <div class="prog-card flex-center">
+                            <div class="fire-icon-wrapper">
+                                <span>🔥</span>
+                                <div class="fire-number">0</div>
+                            </div>
+                            <span class="prog-label highlight-orange">Sequência de dias</span>
+                            <div class="week-dots">
+                                <div class="w-dot-col"><span>S</span><div class="w-dot"></div></div>
+                                <div class="w-dot-col"><span>M</span><div class="w-dot"></div></div>
+                                <div class="w-dot-col"><span>T</span><div class="w-dot"></div></div>
+                                <div class="w-dot-col"><span>W</span><div class="w-dot"></div></div>
+                                <div class="w-dot-col"><span>T</span><div class="w-dot"></div></div>
+                                <div class="w-dot-col"><span>F</span><div class="w-dot"></div></div>
+                                <div class="w-dot-col"><span>S</span><div class="w-dot"></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="prog-tabs-bar">
+                        <button class="prog-tab active" onclick="toggleProgTab(this, 'time1')">90 Dias</button>
+                        <button class="prog-tab" onclick="toggleProgTab(this, 'time1')">6 Meses</button>
+                        <button class="prog-tab" onclick="toggleProgTab(this, 'time1')">1 Ano</button>
+                        <button class="prog-tab" onclick="toggleProgTab(this, 'time1')">Todos os tempos</button>
+                    </div>
+
+                    <div class="prog-card">
+                        <div class="card-header-row">
+                            <h4 class="card-title-white">Progresso do Objetivo</h4>
+                            <button class="prog-badge outline-badge">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg>
+                                0% da meta
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-left:4px;"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                            </button>
+                        </div>
+                        
+                        <div class="chart-container">
+                            <div class="chart-grid-line"><span>55.5</span><div class="dashed-line"></div></div>
+                            <div class="chart-grid-line"><span>55.3</span><div class="dashed-line"></div></div>
+                            <div class="chart-grid-line"><span>55.0</span><div class="dashed-line"></div></div>
+                            <div class="chart-grid-line"><span>54.8</span><div class="dashed-line"></div></div>
+                            <div class="chart-grid-line"><span>54.5</span><div class="dashed-line"></div></div>
+                            
+                            <div class="chart-solid-line" style="top: 50%;"></div>
+                        </div>
+
+                        <p class="motivational-text">Começar é a parte mais difícil. Você está pronto para isso!</p>
+                    </div>
+
+                    <h3 class="section-title-prog">Fotos de progresso</h3>
+                    <div class="prog-card photo-card">
+                        <div class="photo-icon-box">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+                        </div>
+                        <div class="photo-info">
+                            <p>Deseja adicionar uma foto para acompanhar seu progresso?</p>
+                            <button class="btn-prog-action">+ Carregar uma foto</button>
+                        </div>
+                    </div>
+
+                    <div class="prog-tabs-bar">
+                        <button class="prog-tab active" onclick="toggleProgTab(this, 'time2')">Esta semana</button>
+                        <button class="prog-tab" onclick="toggleProgTab(this, 'time2')">Semana passada</button>
+                        <button class="prog-tab" onclick="toggleProgTab(this, 'time2')">Há 2 semanas</button>
+                        <button class="prog-tab" onclick="toggleProgTab(this, 'time2')">Há 3 semanas</button>
+                    </div>
+
+                    <div class="prog-card">
+                        <h4 class="card-title-white" style="margin-bottom: 8px;">Calorias totais</h4>
+                        <div class="calories-val">0.0 <span>cal</span></div>
+
+                        <div class="chart-container large-chart">
+                            <div class="chart-grid-line"><span>0</span><div class="dashed-line"></div></div>
+                            <div class="chart-grid-line"><span>0</span><div class="dashed-line"></div></div>
+                            <div class="chart-grid-line"><span>0</span><div class="dashed-line"></div></div>
+                            <div class="chart-grid-line"><span>0</span><div class="dashed-line"></div></div>
+                            
+                            <div class="x-axis-labels">
+                                <span>dom.</span><span>seg.</span><span>ter.</span><span>qua.</span><span>qui.</span><span>sex.</span><span>sáb.</span>
+                            </div>
+                        </div>
+
+                        <div class="chart-legend">
+                            <div class="legend-item"><span class="lg-icon" style="color:#F87171;">🍗</span> Protein</div>
+                            <div class="legend-item"><span class="lg-icon" style="color:#FBBF24;">🌾</span> Carbs</div>
+                            <div class="legend-item"><span class="lg-icon" style="color:#60A5FA;">🥑</span> Fats</div>
+                        </div>
+
+                        <p class="motivational-text">Começar é a parte mais difícil. Você está pronto para isso!</p>
+                    </div>
+
+                    <div class="prog-card">
+                        <div class="card-header-row" style="margin-bottom: 12px;">
+                            <h4 class="card-title-white">Seu IMC</h4>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                        </div>
+                        
+                        <div class="imc-value-row">
+                            <span class="imc-number">17.96</span>
+                            <span class="imc-desc">"Seu peso é"</span>
+                            <span class="imc-badge blue-badge">Abaixo do peso</span>
+                        </div>
+
+                        <div class="imc-gradient-bar-container">
+                            <div class="imc-gradient-bar"></div>
+                            <div class="imc-marker" style="left: 15%;"></div> 
+                        </div>
+
+                        <div class="imc-legend">
+                            <span><div class="dot-c" style="background:#38BDF8;"></div> Abaixo do peso</span>
+                            <span><div class="dot-c" style="background:#10B981;"></div> Saudável</span>
+                            <span><div class="dot-c" style="background:#F59E0B;"></div> Sobrepeso</span>
+                            <span><div class="dot-c" style="background:#EF4444;"></div> Obeso</span>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="tab-profile" class="app-screen">
+                <header class="app-header"><h2>Perfil</h2></header>
+                <div class="screen-body"><p class="placeholder-text">Suas configurações, metas e dados pessoais.</p></div>
+            </section>
+
+        </main>
+
+        <nav class="bottom-nav">
+            <button class="nav-item active" id="nav-dashboard" onclick="switchTab('tab-dashboard', this)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                <span>Início</span>
+            </button>
+            <button class="nav-item" id="nav-workout" onclick="switchTab('tab-workout', this)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 6.5h11M6.5 17.5h11M5 4v16M19 4v16M9 9h6v6H9z"></path></svg>
+                <span>Treinos</span>
+            </button>
+            
+            <button class="nav-item nav-fab" id="main-fab" onclick="toggleFabMenu()">
+                <div class="fab-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fab-icon-plus"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                </div>
+            </button>
+
+            <button class="nav-item" id="nav-progress" onclick="switchTab('tab-progress', this)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"></path><path d="M12 20V4"></path><path d="M6 20v-4"></path></svg>
+                <span>Progresso</span>
+            </button>
+
+            <button class="nav-item" id="nav-profile" onclick="switchTab('tab-profile', this)">
+                <div class="profile-avatar"></div>
+                <span>Perfil</span>
+            </button>
+        </nav>
+
+        <div id="swap-modal" class="modal-overlay">
+            <div class="bottom-sheet">
+                <div class="sheet-header">
+                    <h3>Alternativas</h3>
+                    <button class="icon-btn" onclick="closeSwapModal()">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    </button>
+                </div>
+                <div id="alt-exercises-list" class="exercise-list-container"></div>
+            </div>
+        </div>
+
+        <div id="generate-modal" class="modal-overlay">
+            <div class="bottom-sheet">
+                <div class="sheet-header">
+                    <h3>Gerar Treino</h3>
+                    <button class="icon-btn" onclick="closeGenerateModal()">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    </button>
+                </div>
+                <div class="generate-form-container">
+                    
+                    <div class="week-selector-container">
+                        <button class="day-circle-btn" onclick="toggleDay(this)">Dom</button>
+                        <button class="day-circle-btn active" onclick="toggleDay(this)">Seg</button>
+                        <button class="day-circle-btn active" onclick="toggleDay(this)">Ter</button>
+                        <button class="day-circle-btn active" onclick="toggleDay(this)">Qua</button>
+                        <button class="day-circle-btn active" onclick="toggleDay(this)">Qui</button>
+                        <button class="day-circle-btn active" onclick="toggleDay(this)">Sex</button>
+                        <button class="day-circle-btn" onclick="toggleDay(this)">Sáb</button>
+                    </div>
+
+                    <div class="equip-selector-container">
+                        <button class="equip-btn" onclick="toggleEquip(this)">Com equipamentos</button>
+                        <button class="equip-btn" onclick="toggleEquip(this)">Sem equipamentos</button>
+                    </div>
+
+                    <button class="restrict-btn">Exercícios restringidos</button>
+
+                    <button class="btn-submit-gen" onclick="simulateGenerate()">Gerar treino</button>
+
+                </div>
+            </div>
+        </div>
+
+        <div id="food-detail-modal" class="modal-overlay" style="z-index: 1000;">
+                    <div class="bottom-sheet">
+                        <div class="sheet-header">
+                            <h3>Informação Nutricional</h3>
+                            <button class="icon-btn" onclick="closeFoodDetail()">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                            </button>
+                        </div>
+                        <div id="food-detail-content"></div>
+                        <button id="btn-register-food" class="btn-submit-gen" style="margin-top: 24px;">Registrar Alimento</button>
+                    </div>
+                </div>
+
+    </div>
+
+    <script src="alimentos.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

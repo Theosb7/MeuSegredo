@@ -1,0 +1,55 @@
+/* ==========================================
+   DIET DATABASE & SEARCH SCREEN
+   ========================================== */
+
+.diet-body { gap: 16px; padding-top: 8px; }
+
+/* Barra de Busca */
+.search-input-wrapper { position: relative; margin-bottom: 8px; width: 100%; }
+.search-icon { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: #9CA3AF; }
+.food-search-input { 
+    width: 100%; background: var(--card-bg); border: 1px solid var(--border-color); 
+    padding: 16px 16px 16px 44px; border-radius: 16px; font-size: 16px; 
+    font-weight: 600; color: var(--text-dark); outline: none; 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.02); transition: border-color 0.2s;
+}
+.food-search-input:focus { border-color: var(--primary); }
+.food-search-input::placeholder { color: #9CA3AF; font-weight: 500; }
+
+/* Lista de Resultados */
+.food-results-list { display: flex; flex-direction: column; gap: 12px; overflow-y: auto; flex: 1; padding-bottom: 24px; }
+.food-result-card { 
+    display: flex; justify-content: space-between; align-items: center; padding: 16px; 
+    background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 16px; 
+    cursor: pointer; transition: all 0.2s; box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+}
+.food-result-card:active { border-color: var(--primary); background: var(--primary-light); transform: scale(0.98); }
+.food-res-info { display: flex; flex-direction: column; gap: 4px; }
+.food-res-name { font-size: 14px; font-weight: 700; color: var(--text-dark); }
+.food-res-detail { font-size: 12px; font-weight: 500; color: var(--text-muted); }
+
+/* Seta do cartão de busca */
+.btn-arrow-icon { color: #D1D5DB; }
+
+/* ==========================================
+   MODAL DE DETALHES NUTRICIONAIS
+   ========================================== */
+.detail-hero { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px; }
+.detail-title-block { display: flex; flex-direction: column; gap: 4px; }
+.detail-name { font-size: 20px; font-weight: 800; color: var(--text-dark); }
+.detail-brand { font-size: 13px; font-weight: 600; color: var(--text-muted); }
+.detail-cal-block { background: #F3F4F6; padding: 12px 16px; border-radius: 16px; text-align: center; }
+.detail-cal-val { font-size: 24px; font-weight: 800; color: var(--text-dark); display: block; line-height: 1; }
+.detail-cal-lbl { font-size: 11px; font-weight: 700; color: var(--text-muted); }
+
+/* Grid de Macros */
+.detail-macro-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 24px; }
+.dm-card { background: var(--card-bg); border: 1px solid var(--border-color); padding: 16px 12px; border-radius: 16px; text-align: center; display: flex; flex-direction: column; gap: 4px;}
+.dm-val { font-size: 18px; font-weight: 800; color: var(--text-dark); }
+.dm-lbl { font-size: 11px; font-weight: 600; color: var(--text-muted); }
+
+/* Lista de Micro Nutrientes (Sódio, Fibras, etc) */
+.micro-list { display: flex; flex-direction: column; border-top: 1px solid var(--border-color); }
+.micro-row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--border-color); font-size: 13px; }
+.micro-lbl { color: var(--text-muted); font-weight: 600; }
+.micro-val { color: var(--text-dark); font-weight: 800; }

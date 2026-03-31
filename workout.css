@@ -1,0 +1,99 @@
+/* ==========================================
+   WORKOUT SCREEN STYLES
+   ========================================== */
+
+/* Cartão Herói (Resumo do Treino) */
+.workout-hero-card {
+    background: linear-gradient(145deg, #111827 0%, #1F2937 100%);
+    border-radius: 28px; padding: 28px 24px; color: white;
+    box-shadow: 0 12px 32px rgba(17, 24, 39, 0.15); margin-bottom: 12px;
+    display: flex; flex-direction: column; position: relative; overflow: hidden;
+    height: 100%; /* Para alinhar as alturas no carrossel */
+}
+
+/* Detalhe de fundo (firula visual premium) */
+.workout-hero-card::after {
+    content: ''; position: absolute; top: -50px; right: -30px;
+    width: 150px; height: 150px; border-radius: 50%;
+    background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+    opacity: 0.15; pointer-events: none;
+}
+
+.hero-top { margin-bottom: 16px; position: relative; z-index: 1; }
+.ai-badge {
+    background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 6px 12px; border-radius: 12px; font-size: 10px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.5px; backdrop-filter: blur(4px);
+}
+
+.hero-title { font-size: 24px; font-weight: 800; margin-bottom: 8px; line-height: 1.2; position: relative; z-index: 1; }
+.hero-details { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #9CA3AF; font-weight: 500; margin-bottom: 24px; position: relative; z-index: 1; }
+.dot-separator { font-size: 10px; opacity: 0.5; }
+
+.btn-start-workout {
+    background: var(--primary); color: white; border: none;
+    padding: 16px; border-radius: 16px; font-size: 14px; font-weight: 800;
+    text-transform: uppercase; letter-spacing: 1px; cursor: pointer;
+    box-shadow: 0 4px 12px rgba(31, 166, 160, 0.3); transition: transform 0.2s;
+    position: relative; z-index: 1; margin-top: auto;
+}
+.btn-start-workout:active { transform: scale(0.98); }
+
+/* ==========================================
+   NOVO: CARROSSEL DE TREINOS
+   ========================================== */
+.workout-carousel-container { position: relative; width: 100%; margin-bottom: 24px; margin-top: 8px; }
+.workout-carousel-track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-bottom: 8px; gap: 16px; }
+.workout-carousel-track::-webkit-scrollbar { display: none; }
+.workout-carousel-slide { min-width: 100%; scroll-snap-align: center; flex-shrink: 0; display: flex; flex-direction: column; }
+
+/* Slide 2: Cartão de Gerar Novo Treino */
+.generate-card { background: var(--card-bg); border: 2px dashed var(--border-color); box-shadow: none; cursor: pointer; transition: transform 0.2s; }
+.generate-card:active { transform: scale(0.98); }
+.generate-card::after { display: none; } /* Remove brilho de fundo */
+.dark-badge { background: #F3F4F6; color: var(--text-dark); border: none; backdrop-filter: none; }
+.btn-dark-outline { background: transparent; color: var(--text-dark); border: 2px solid var(--text-dark); box-shadow: none; }
+
+/* Lista de Exercícios */
+.exercise-list-container { display: flex; flex-direction: column; gap: 12px; }
+.exercise-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 20px; padding: 16px; display: flex; align-items: center; gap: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.02); transition: border-color 0.2s; }
+.ex-image-box { width: 56px; height: 56px; background: var(--bg-color); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--text-dark); }
+.ex-info { flex: 1; display: flex; flex-direction: column; gap: 4px; }
+.ex-info h4 { font-size: 14px; font-weight: 700; color: var(--text-dark); line-height: 1.2; }
+.ex-info p { font-size: 12px; font-weight: 500; color: var(--text-muted); }
+.ex-action-btn { background: none; border: none; color: var(--primary); width: 40px; height: 40px; display: flex; align-items: center; justify-content: flex-end; cursor: pointer; transition: transform 0.2s; }
+.ex-action-btn:active { transform: scale(0.9); }
+
+/* ==========================================
+   MODAIS / GAVETAS (BOTTOM SHEETS)
+   ========================================== */
+.modal-overlay { position: absolute; inset: 0; background: rgba(11, 20, 38, 0.6); z-index: 200; display: flex; flex-direction: column; justify-content: flex-end; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+.modal-overlay.show { opacity: 1; pointer-events: auto; }
+.bottom-sheet { background: var(--bg-color); width: 100%; border-radius: 24px 24px 0 0; padding: 24px; padding-bottom: calc(24px + env(safe-area-inset-bottom)); transform: translateY(100%); transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); max-height: 85vh; display: flex; flex-direction: column; }
+.modal-overlay.show .bottom-sheet { transform: translateY(0); }
+.sheet-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+.sheet-header h3 { font-size: 18px; font-weight: 800; color: var(--text-dark); margin: 0; }
+
+/* Cartão da Gaveta de Troca */
+.alt-exercise-card { cursor: pointer; border: 2px solid transparent; }
+.alt-exercise-card:active { border-color: var(--primary); background: var(--primary-light); }
+.alt-tag { font-size: 10px; font-weight: 700; color: var(--primary); background: var(--primary-light); padding: 4px 8px; border-radius: 6px; width: fit-content; margin-top: 4px; }
+
+/* ==========================================
+   NOVO: FORMULÁRIO DE GERAR TREINO (Inspirado no desenho)
+   ========================================== */
+.generate-form-container { background: #E5E7EB; border-radius: 24px; padding: 24px; display: flex; flex-direction: column; gap: 16px; }
+
+.week-selector-container { display: flex; justify-content: space-between; gap: 4px; }
+.day-circle-btn { width: 36px; height: 36px; border-radius: 50%; background: white; border: none; font-size: 12px; font-weight: 700; color: var(--text-dark); cursor: pointer; transition: all 0.2s; box-shadow: 0 2px 4px rgba(0,0,0,0.05); flex-shrink: 0; }
+.day-circle-btn.active { background: var(--text-dark); color: white; }
+
+.equip-selector-container { display: flex; gap: 12px; }
+.equip-btn { flex: 1; background: white; border: 2px solid transparent; padding: 14px 8px; border-radius: 16px; font-size: 13px; font-weight: 600; color: var(--text-dark); cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.05); transition: all 0.2s; }
+.equip-btn.active { border-color: var(--text-dark); }
+
+.restrict-btn { width: 100%; background: white; border: none; padding: 16px; border-radius: 16px; font-size: 14px; font-weight: 600; color: var(--text-dark); cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.05); transition: transform 0.2s; }
+.restrict-btn:active { transform: scale(0.98); }
+
+.btn-submit-gen { width: 100%; background: #0B1426; color: white; border: none; padding: 18px; border-radius: 16px; font-size: 16px; font-weight: 700; cursor: pointer; margin-top: 8px; box-shadow: 0 4px 12px rgba(11, 20, 38, 0.2); transition: transform 0.2s; }
+.btn-submit-gen:active { transform: scale(0.98); }

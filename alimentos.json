@@ -1,0 +1,20 @@
+[
+  { "id": "food_01", "nome": "Arroz Branco Cozido", "marca": "Geral", "porcao": "100g", "kcal": 130, "p": 2.5, "c": 28.1, "g": 0.2 },
+  { "id": "food_02", "nome": "Feijão Carioca Cozido", "marca": "Geral", "porcao": "100g", "kcal": 76, "p": 4.8, "c": 13.6, "g": 0.5 },
+  { "id": "food_03", "nome": "Peito de Frango Grelhado", "marca": "Geral", "porcao": "100g", "kcal": 165, "p": 31.0, "c": 0.0, "g": 3.6 },
+  { "id": "food_04", "nome": "Ovo de Galinha (Cozido)", "marca": "Geral", "porcao": "1 unidade (50g)", "kcal": 77, "p": 6.3, "c": 0.6, "g": 5.3 },
+  { "id": "food_05", "nome": "Pão de Forma Tradicional", "marca": "Pullman", "porcao": "2 fatias (50g)", "kcal": 122, "p": 4.2, "c": 23.0, "g": 1.4 },
+  { "id": "food_06", "nome": "Pão Francês", "marca": "Geral", "porcao": "1 unidade (50g)", "kcal": 150, "p": 4.0, "c": 29.3, "g": 1.6 },
+  { "id": "food_07", "nome": "Leite Integral", "marca": "Elegê", "porcao": "1 copo (200ml)", "kcal": 118, "p": 5.8, "c": 9.4, "g": 6.0 },
+  { "id": "food_08", "nome": "Aveia em Flocos", "marca": "Quaker", "porcao": "30g", "kcal": 114, "p": 4.3, "c": 17.0, "g": 2.2 },
+  { "id": "food_09", "nome": "Banana Prata", "marca": "Geral", "porcao": "1 unidade (70g)", "kcal": 69, "p": 0.9, "c": 18.2, "g": 0.1 },
+  { "id": "food_10", "nome": "Maçã Fuji", "marca": "Geral", "porcao": "1 unidade (130g)", "kcal": 68, "p": 0.3, "c": 15.2, "g": 0.2 },
+  { "id": "food_11", "nome": "Achocolatado em Pó", "marca": "Nescau", "porcao": "2 colheres (20g)", "kcal": 73, "p": 0.7, "c": 17.0, "g": 0.0 },
+  { "id": "food_12", "nome": "Whey Protein Concentrado", "marca": "Growth", "porcao": "1 scoop (30g)", "kcal": 120, "p": 24.0, "c": 4.0, "g": 1.0 },
+  { "id": "food_13", "nome": "Biscoito Recheado Chocolate", "marca": "Bono", "porcao": "3 unidades (30g)", "kcal": 142, "p": 1.6, "c": 21.0, "g": 5.8 },
+  { "id": "food_14", "nome": "Macarrão Espaguete Cozido", "marca": "Geral", "porcao": "100g", "kcal": 158, "p": 5.8, "c": 30.9, "g": 0.9 },
+  { "id": "food_15", "nome": "Patinho Moído Cozido", "marca": "Geral", "porcao": "100g", "kcal": 219, "p": 35.9, "c": 0.0, "g": 7.3 },
+  { "id": "food_16", "nome": "Iogurte Natural Integral", "marca": "Nestlé", "porcao": "1 pote (170g)", "kcal": 107, "p": 5.8, "c": 7.8, "g": 5.8 },
+  { "id": "food_17", "nome": "Manteiga", "marca": "Aviação", "porcao": "1 colher de sopa (10g)", "kcal": 74, "p": 0.0, "c": 0.0, "g": 8.3 },
+  { "id": "food_18", "nome": "Tapioca", "marca": "Geral", "porcao": "1 porção (50g)", "kcal": 170, "p": 0.0, "c": 41.0, "g": 0.0 }
+]

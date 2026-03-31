@@ -1,0 +1,130 @@
+/* ==========================================
+   SCANNER CAMERA SCREEN STYLES (CAL AI STYLE)
+   ========================================== */
+
+#tab-camera.active {
+    position: absolute; inset: 0; z-index: 999;
+    background-color: #000; display: flex; flex-direction: column;
+}
+
+/* O vídeo real da câmera do usuário */
+.camera-feed {
+    position: absolute; inset: 0; z-index: 1;
+    width: 100%; height: 100%; object-fit: cover;
+    background: #111827; 
+}
+
+/* Interface por cima da câmera */
+.camera-ui {
+    position: relative; z-index: 2; flex: 1;
+    display: flex; flex-direction: column; justify-content: space-between;
+    padding: 32px 24px; padding-top: max(32px, env(safe-area-inset-top));
+    padding-bottom: max(32px, env(safe-area-inset-bottom));
+}
+
+.camera-top-bar { display: flex; justify-content: space-between; align-items: center; }
+
+/* Botões do Topo Escuros/Translúcidos */
+.cam-icon-btn {
+    width: 44px; height: 44px; border-radius: 50%; border: none;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: all 0.2s;
+}
+.cam-icon-btn:active { transform: scale(0.9); }
+
+.dark-cam-btn {
+    background: rgba(0, 0, 0, 0.4); backdrop-filter: blur(10px);
+}
+
+.outline-cam-btn {
+    background: transparent; border: 1px solid rgba(255,255,255,0.5);
+    color: white; backdrop-filter: blur(4px);
+}
+.outline-cam-btn.active {
+    background: white; color: black; border-color: white;
+}
+
+/* O Visor de Foco (Viewfinder) */
+.focus-frame-container { display: flex; flex-direction: column; align-items: center; gap: 16px; margin-top: -40px; }
+
+.focus-frame {
+    width: 260px; height: 260px; position: relative;
+    /* Removemos a borda fina e deixamos só os cantos */
+}
+
+/* Quinas (Corners) do Visor mais suaves e modernas */
+.corner { position: absolute; width: 44px; height: 44px; border-color: #FFFFFF; border-style: solid; }
+.top-left { top: -2px; left: -2px; border-width: 4px 0 0 4px; border-top-left-radius: 16px; }
+.top-right { top: -2px; right: -2px; border-width: 4px 4px 0 0; border-top-right-radius: 16px; }
+.bottom-left { bottom: -2px; left: -2px; border-width: 0 0 4px 4px; border-bottom-left-radius: 16px; }
+.bottom-right { bottom: -2px; right: -2px; border-width: 0 4px 4px 0; border-bottom-right-radius: 16px; }
+
+.scan-laser {
+    position: absolute; left: 0; width: 100%; height: 2px;
+    background: var(--primary); box-shadow: 0 0 12px var(--primary);
+    animation: scan 2.5s infinite linear; opacity: 0;
+}
+.scanning .scan-laser { opacity: 1; }
+
+@keyframes scan {
+    0% { top: 10%; opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { top: 90%; opacity: 0; }
+}
+
+/* ==========================================
+   Controles Inferiores (A Pílula e Captura)
+   ========================================== */
+.camera-bottom-section {
+    display: flex; flex-direction: column; gap: 32px; align-items: center; width: 100%;
+}
+
+.scanner-mode-pill {
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
+    border-radius: 40px; padding: 8px; width: 100%; max-width: 340px;
+}
+
+.mode-btn {
+    background: transparent; border: none; color: #6B7280;
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+    padding: 10px 16px; border-radius: 30px; cursor: pointer; transition: all 0.2s;
+}
+
+.mode-btn.active {
+    background: #FFFFFF; color: #111827; box-shadow: 0 2px 10px rgba(0,0,0,0.08); font-weight: 700;
+}
+
+.mode-btn span { font-size: 13px; white-space: nowrap; }
+.mode-btn:not(.active) span { display: none; } /* Oculta texto se não for ativo, mantendo só o ícone */
+
+.camera-capture-row {
+    display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 0 16px;
+}
+
+.capture-btn {
+    width: 76px; height: 76px; border-radius: 50%; background: transparent;
+    border: 3px solid white; display: flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: transform 0.2s;
+}
+.capture-btn-inner { width: 62px; height: 62px; border-radius: 50%; background: white; transition: all 0.2s; }
+.capture-btn:active .capture-btn-inner { transform: scale(0.9); }
+
+/* Tela de Processamento Escura */
+.analyzing-overlay {
+    position: absolute; inset: 0; background: rgba(0, 0, 0, 0.85); z-index: 10;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none; transition: opacity 0.3s; backdrop-filter: blur(8px);
+}
+.analyzing-overlay.show { opacity: 1; pointer-events: auto; }
+
+.ai-spinner { animation: spin 1s linear infinite; }
+.ai-spinner svg { width: 48px; height: 48px; }
+@keyframes spin { 100% { transform: rotate(360deg); } }
+
+.text-white { color: white; }
+.text-gray-400 { color: #9CA3AF; }
+.text-sm { font-size: 14px; }
+.mt-16 { margin-top: 16px; }
+.mt-8 { margin-top: 8px; }

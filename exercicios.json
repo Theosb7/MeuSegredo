@@ -1,0 +1,266 @@
+[
+  {
+    "id": "peit_001",
+    "nome": "Supino Reto com Halteres",
+    "grupo_muscular": "Peitoral",
+    "foco": ["Peitoral Maior", "Deltoide", "Tríceps"],
+    "equipamento": "Halteres",
+    "nivel": "Iniciante"
+  },
+  {
+    "id": "peit_002",
+    "nome": "Flexão de Braço (Push-up)",
+    "grupo_muscular": "Peitoral",
+    "foco": ["Peitoral Maior", "Tríceps", "Core"],
+    "equipamento": "Peso Corporal",
+    "nivel": "Iniciante"
+  },
+  {
+    "id": "peit_003",
+    "nome": "Crucifixo na Polia (Crossover)",
+    "grupo_muscular": "Peitoral",
+    "foco": ["Peitoral Inferior", "Miolo do Peito"],
+    "equipamento": "Máquina / Polia",
+    "nivel": "Intermediário"
+  },
+  {
+    "id": "peit_004",
+    "nome": "Supino Máquina Articulado",
+    "grupo_muscular": "Peitoral",
+    "foco": ["Peitoral Maior"],
+    "equipamento": "Máquina",
+    "nivel": "Iniciante"
+  },
+  {
+    "id": "peit_005",
+    "nome": "Supino Inclinado com Barra",
+    "grupo_muscular": "Peitoral",
+    "foco": ["Peitoral Superior", "Deltoide Anterior"],
+    "equipamento": "Barra Livre",
+    "nivel": "Intermediário"
+  },
+  {
+    "id": "cost_001",
+    "nome": "Puxada Frontal (Pulldown)",
+    "grupo_muscular": "Costas",
+    "foco": ["Latíssimo do Dorso", "Bíceps"],
+    "equipamento": "Máquina / Polia",
+    "nivel": "Iniciante"
+  },
+  {
+    "id": "cost_002",
+    "nome": "Barra Fixa (Pull-up)",
+    "grupo_muscular": "Costas",
+    "foco": ["Latíssimo do Dorso", "Bíceps", "Core"],
+    "equipamento": "Peso Corporal",
+    "nivel": "Avançado"
+  },
+  {
+    "id": "cost_003",
+    "nome": "Remada Curvada com Barra",
+    "grupo_muscular": "Costas",
+    "foco": ["Dorsal", "Romboides", "Lombar"],
+    "equipamento": "Barra Livre",
+    "nivel": "Intermediário"
+  },
+  {
+    "id": "cost_004",
+    "nome": "Remada Serrote com Halter",
+    "grupo_muscular": "Costas",
+    "foco": ["Latíssimo do Dorso", "Deltoide Posterior"],
+    "equipamento": "Halteres",
+    "nivel": "Iniciante"
+  },
+  {
+    "id": "omb_001",
+    "nome": "Desenvolvimento com Halteres",
+    "grupo_muscular": "Ombros",
+    "foco": ["Deltoide Anterior", "Deltoide Médio"],
+    "equipamento": "Halteres",
+    "nivel": "Iniciante"
+  },
+  {
+    "id": "omb_002",
+    "nome": "Elevação Lateral na Polia",
+    "grupo_muscular": "Ombros",
+    "foco": ["Deltoide Médio"],
+    "equipamento": "Máquina / Polia",
+    "nivel": "Intermediário"
+  },
+  {
+    "id": "omb_003",
+    "nome": "Elevação Frontal com Anilhas",
+    "grupo_muscular": "Ombros",
+    "foco": ["Deltoide Anterior"],
+    "equipamento": "Anilhas / Halteres",
+    "nivel": "Iniciante"
+  },
+  {
+    "id": "omb_004",
+    "nome": "Crucifixo Invertido (Máquina Voador)",
+    "grupo_muscular": "Ombros",
+    "foco": ["Deltoide Posterior", "Trapézio"],
+    "equipamento": "Máquina",
+    "nivel": "Iniciante"
+  },
+  {
+    "id": "tri_001",
+    "nome": "Tríceps na Polia (Corda)",
+    "grupo_muscular": "Tríceps",
+    "foco": ["Tríceps Braquial"],
+    "equipamento": "Máquina / Polia",
+    "nivel": "Iniciante"
+  },
+  {
+    "id": "tri_002",
+    "nome": "Tríceps Testa com Barra W",
+    "grupo_muscular": "Tríceps",
+    "foco": ["Porção Longa do Tríceps"],
+    "equipamento": "Barra Livre",
+    "nivel": "Intermediário"
+  },
+  {
+    "id": "tri_003",
+    "nome": "Mergulho em Paralelas (Dips)",
+    "grupo_muscular": "Tríceps",
+    "foco": ["Tríceps", "Peitoral Inferior"],
+    "equipamento": "Peso Corporal",
+    "nivel": "Avançado"
+  },
+  {
+    "id": "tri_004",
+    "nome": "Tríceps Coice com Halter",
+    "grupo_muscular": "Tríceps",
+    "foco": ["Tríceps Braquial"],
+    "equipamento": "Halteres",
+    "nivel": "Iniciante"
+  },
+  {
+    "id": "bic_001",
+    "nome": "Rosca Direta com Barra",
+    "grupo_muscular": "Bíceps",
+    "foco": ["Bíceps Braquial"],
+    "equipamento": "Barra Livre",
+    "nivel": "Iniciante"
+  },
+  {
+    "id": "bic_002",
+    "nome": "Rosca Martelo com Halteres",
+    "grupo_muscular": "Bíceps",
+    "foco": ["Braquiorradial", "Bíceps Braquial"],
+    "equipamento": "Halteres",
+    "nivel": "Iniciante"
+  },
+  {
+    "id": "bic_003",
+    "nome": "Rosca Scott na Máquina",
+    "grupo_muscular": "Bíceps",
+    "foco": ["Porção Curta do Bíceps"],
+    "equipamento": "Máquina",
+    "nivel": "Intermediário"
+  },
+  {
+    "id": "bic_004",
+    "nome": "Rosca Concentrada",
+    "grupo_muscular": "Bíceps",
+    "foco": ["Pico do Bíceps"],
+    "equipamento": "Halteres",
+    "nivel": "Iniciante"
+  },
+  {
+    "id": "pern_001",
+    "nome": "Agachamento Livre",
+    "grupo_muscular": "Pernas",
+    "foco": ["Quadríceps", "Glúteos", "Core"],
+    "equipamento": "Barra Livre",
+    "nivel": "Intermediário"
+  },
+  {
+    "id": "pern_002",
+    "nome": "Leg Press 45º",
+    "grupo_muscular": "Pernas",
+    "foco": ["Quadríceps", "Glúteos"],
+    "equipamento": "Máquina",
+    "nivel": "Iniciante"
+  },
+  {
+    "id": "pern_003",
+    "nome": "Cadeira Extensora",
+    "grupo_muscular": "Pernas",
+    "foco": ["Quadríceps Isolado"],
+    "equipamento": "Máquina",
+    "nivel": "Iniciante"
+  },
+  {
+    "id": "pern_004",
+    "nome": "Mesa Flexora",
+    "grupo_muscular": "Pernas",
+    "foco": ["Posterior de Coxa"],
+    "equipamento": "Máquina",
+    "nivel": "Iniciante"
+  },
+  {
+    "id": "pern_005",
+    "nome": "Stiff com Halteres",
+    "grupo_muscular": "Pernas",
+    "foco": ["Posterior de Coxa", "Lombar"],
+    "equipamento": "Halteres",
+    "nivel": "Intermediário"
+  },
+  {
+    "id": "pern_006",
+    "nome": "Afundo Búlgaro",
+    "grupo_muscular": "Pernas",
+    "foco": ["Quadríceps", "Glúteos", "Equilíbrio"],
+    "equipamento": "Halteres / Peso Corporal",
+    "nivel": "Avançado"
+  },
+  {
+    "id": "glut_001",
+    "nome": "Elevação Pélvica com Barra",
+    "grupo_muscular": "Glúteos",
+    "foco": ["Glúteo Máximo"],
+    "equipamento": "Barra Livre",
+    "nivel": "Intermediário"
+  },
+  {
+    "id": "glut_002",
+    "nome": "Cadeira Abdutora",
+    "grupo_muscular": "Glúteos",
+    "foco": ["Glúteo Médio"],
+    "equipamento": "Máquina",
+    "nivel": "Iniciante"
+  },
+  {
+    "id": "core_001",
+    "nome": "Prancha Isométrica",
+    "grupo_muscular": "Core",
+    "foco": ["Transverso do Abdômen", "Lombar"],
+    "equipamento": "Peso Corporal",
+    "nivel": "Iniciante"
+  },
+  {
+    "id": "core_002",
+    "nome": "Abdominal Supra (Tradicional)",
+    "grupo_muscular": "Core",
+    "foco": ["Reto Abdominal"],
+    "equipamento": "Peso Corporal",
+    "nivel": "Iniciante"
+  },
+  {
+    "id": "core_003",
+    "nome": "Russian Twist com Peso",
+    "grupo_muscular": "Core",
+    "foco": ["Oblíquos", "Core"],
+    "equipamento": "Anilhas / Halteres",
+    "nivel": "Intermediário"
+  },
+  {
+    "id": "core_004",
+    "nome": "Abdominal Infra (Elevação de Pernas)",
+    "grupo_muscular": "Core",
+    "foco": ["Reto Abdominal Inferior"],
+    "equipamento": "Peso Corporal",
+    "nivel": "Iniciante"
+  }
+]
