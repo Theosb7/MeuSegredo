@@ -325,11 +325,14 @@ function handleFabAction(action) {
     setTimeout(() => {
         if(action === 'camera') {
             switchTab('tab-camera', null); 
-        } else {
-            // AQUI ESTÁ A MÁGICA: Joga pra aba Banco de Alimentos e já clica na barra de pesquisa pra abrir o teclado!
+        } else if (action === 'search') {
             switchTab('tab-diet', document.getElementById('nav-diet'));
             const searchInput = document.getElementById('main-food-search');
             if(searchInput) searchInput.focus();
+        } else if (action === 'manual') {
+            // Placeholder: Ação para registrar manualmente ao clicar no lápis
+            // Pode abrir a aba de dieta ou um modal de novo alimento
+            alert("Botão de registro manual clicado.");
         }
     }, 300); 
 }

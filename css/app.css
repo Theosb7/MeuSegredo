@@ -163,11 +163,10 @@ body { background-color: #E5E5E5; display: flex; justify-content: center; height
 
 .fab-menu.show .fab-action-btn { opacity: 1; pointer-events: auto; }
 
-/* A Matemática do Arco Perfeito */
-.fab-menu.show .fab-action-btn:nth-child(1) { transform: translate(-80px, -25px) scale(1); transition-delay: 0.0s; }
-.fab-menu.show .fab-action-btn:nth-child(2) { transform: translate(-40px, -80px) scale(1); transition-delay: 0.05s; }
-.fab-menu.show .fab-action-btn:nth-child(3) { transform: translate(40px, -80px) scale(1); transition-delay: 0.1s; }
-.fab-menu.show .fab-action-btn:nth-child(4) { transform: translate(80px, -25px) scale(1); transition-delay: 0.15s; }
+/* A Matemática do Arco Perfeito (Para 3 botões) */
+.fab-menu.show .fab-action-btn:nth-child(1) { transform: translate(-75px, -45px) scale(1); transition-delay: 0.0s; }
+.fab-menu.show .fab-action-btn:nth-child(2) { transform: translate(0px, -85px) scale(1); transition-delay: 0.05s; }
+.fab-menu.show .fab-action-btn:nth-child(3) { transform: translate(75px, -45px) scale(1); transition-delay: 0.1s; }
 
 /* Animação do + virando um X */
 .fab-icon-plus { transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
