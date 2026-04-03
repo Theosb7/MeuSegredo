@@ -1,4 +1,4 @@
-# 🥗 MeuSegredo
+# 🥗 NutriAI
 
 <div align="center">
   <p><strong>Seu assistente pessoal de saúde e bem-estar</strong></p>
@@ -9,7 +9,7 @@
 
 <br />
 
-O **MeuSegredo** é um aplicativo web focado em dieta, registro de calorias, monitoramento de macronutrientes e rastreamento de atividades físicas. Focado em uma experiência premium nativa *(Mobile-First)*, o aplicativo oferece um design moderno, animações ricas e interações imersivas diretamente pelo navegador.
+O **NutriAI** é um aplicativo web focado em dieta, registro de calorias, monitoramento de macronutrientes e rastreamento de atividades físicas. Focado em uma experiência premium nativa *(Mobile-First)*, o aplicativo oferece um design moderno, animações ricas e interações imersivas diretamente pelo navegador.
 
 ---
 
@@ -36,7 +36,7 @@ Por ser estruturado puramente na tríade essencial da web (HTML/CSS/JS), você n
 
 1. Clone o repositório em sua máquina:
    ```bash
-   git clone https://github.com/SeuUsuario/MeuSegredo.git
+   git clone https://github.com/SeuUsuario/NutriAI.git
    ```
 
 2. Abra acesso root do projeto.
