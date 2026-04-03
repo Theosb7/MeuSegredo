@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const translations = {
     pt: { 
-        lang_badge: "🇧🇷 PT", example_plan: "EXEMPLO DE PLANO", welcome_title: "Bem-vindo ao<br>FitGuide", welcome_subtitle: "Seu guia simples para comer melhor e treinar sem complicação", btn_start: "Começar", already_have_account: "Já tem conta?", login: "Entrar", btn_continue: "Continuar",
+        lang_badge: "🇧🇷 PT", example_plan: "EXEMPLO DE PLANO", welcome_title: "Bem-vindo ao<br>NutriAI", welcome_subtitle: "Seu guia simples para comer melhor e treinar sem complicação", btn_start: "Começar", already_have_account: "Já tem conta?", login: "Entrar", btn_continue: "Continuar",
         quiz_age_title: "Qual é a sua idade?", quiz_age_subtitle: "Isso nos ajuda a calcular suas necessidades calóricas diárias.",
         quiz_weight_title: "Qual é o seu peso atual?", quiz_weight_subtitle: "Usaremos para calcular suas porções ideais e ajustar seu plano de treino.",
         quiz_height_title: "Qual é a sua altura?", quiz_height_subtitle: "Usaremos para calcular suas porções ideais e ajustar seu plano de treino.",
@@ -75,7 +75,7 @@ const translations = {
         save_50: "ECONOMIZE 50%", plan_annual: "Plano anual", plan_monthly: "Plano mensal", price_annual_monthly: "R$ 12,49", price_monthly_monthly: "R$ 24,90", per_month: "por mês", btn_start_journey_lock: "COMEÇAR MINHA JORNADA 🔒"
     },
     en: { 
-        lang_badge: "🇺🇸 EN", example_plan: "SAMPLE PLAN", welcome_title: "Welcome to<br>FitGuide", welcome_subtitle: "Your simple guide to eating better and training without complications", btn_start: "Start", already_have_account: "Already have an account?", login: "Log in", btn_continue: "Continue",
+        lang_badge: "🇺🇸 EN", example_plan: "SAMPLE PLAN", welcome_title: "Welcome to<br>NutriAI", welcome_subtitle: "Your simple guide to eating better and training without complications", btn_start: "Start", already_have_account: "Already have an account?", login: "Log in", btn_continue: "Continue",
         quiz_age_title: "What is your age?", quiz_age_subtitle: "This helps us calculate your daily caloric needs.",
         quiz_weight_title: "What is your current weight?", quiz_weight_subtitle: "We'll use this to calculate ideal portions and adjust your plan.",
         quiz_height_title: "What is your height?", quiz_height_subtitle: "We'll use this to calculate ideal portions and adjust your plan.",
@@ -107,7 +107,7 @@ const translations = {
         save_50: "SAVE 50%", plan_annual: "Annual plan", plan_monthly: "Monthly plan", price_annual_monthly: "$ 1.95", price_monthly_monthly: "$ 3.90", per_month: "per month", btn_start_journey_lock: "START MY JOURNEY 🔒"
     },
     es: { 
-        lang_badge: "🇪🇸 ES", example_plan: "EJEMPLO DE PLAN", welcome_title: "Bienvenido a<br>FitGuide", welcome_subtitle: "Tu guía sencilla para comer mejor y entrenar sin complicaciones", btn_start: "Empezar", already_have_account: "¿Ya tienes cuenta?", login: "Entrar", btn_continue: "Continuar",
+        lang_badge: "🇪🇸 ES", example_plan: "EJEMPLO DE PLAN", welcome_title: "Bienvenido a<br>NutriAI", welcome_subtitle: "Tu guía sencilla para comer mejor y entrenar sin complicaciones", btn_start: "Empezar", already_have_account: "¿Ya tienes cuenta?", login: "Entrar", btn_continue: "Continuar",
         quiz_age_title: "¿Cuál es tu edad?", quiz_age_subtitle: "Esto nos ayuda a calcular tus necesidades calóricas diarias.",
         quiz_weight_title: "¿Cuál es tu peso actual?", quiz_weight_subtitle: "Lo usaremos para calcular tus porciones ideales y ajustar tu plan.",
         quiz_height_title: "¿Cuál es tu altura?", quiz_height_subtitle: "Lo usaremos para calcular tus porciones ideales y ajustar tu plan.",

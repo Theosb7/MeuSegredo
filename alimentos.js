@@ -75,7 +75,7 @@ function setRingProgress(circleId, percent) {
 
 async function loadFoods() {
     try {
-        const res = await fetch('alimentos.json');
+        const res = await fetch('data/alimentos.json');
         foodsDB = await res.json();
 
         renderDailySuggestions();

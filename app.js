@@ -168,7 +168,7 @@ let currentSwapTarget = null;
 
 async function loadExercises() {
     try {
-        const res = await fetch('exercicios.json');
+        const res = await fetch('data/exercicios.json');
         exercisesDB = await res.json();
     } catch (e) {
         console.log("Erro ao carregar o ficheiro JSON.", e);
