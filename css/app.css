@@ -159,7 +159,10 @@ body { background-color: #E5E5E5; display: flex; justify-content: center; height
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); pointer-events: none;
     cursor: pointer;
 }
-.fab-action-btn:active { transform: scale(0.9) !important; }
+.fab-action-btn:active { opacity: 0.7 !important; background-color: var(--primary) !important; }
+
+/* Evita que o click pegue nas formas do ícone causando cancelamento no Firefox */
+.fab-action-btn svg { pointer-events: none; }
 
 .fab-menu.show .fab-action-btn { opacity: 1; pointer-events: auto; }
 

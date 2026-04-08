@@ -5,12 +5,12 @@ let cameraStream = null;
 
 async function startCamera() {
     const videoElement = document.getElementById('camera-stream');
-    
+
     // Verifica se o navegador suporta e se está em um ambiente seguro (HTTPS ou localhost)
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
         try {
-            cameraStream = await navigator.mediaDevices.getUserMedia({ 
-                video: { facingMode: 'environment' } 
+            cameraStream = await navigator.mediaDevices.getUserMedia({
+                video: { facingMode: 'environment' }
             });
             videoElement.srcObject = cameraStream;
         } catch (err) {
@@ -53,7 +53,7 @@ function switchTab(tabId, clickedButton) {
     }
 
     const mainContent = document.getElementById('main-content');
-    if(mainContent) {
+    if (mainContent) {
         mainContent.scrollTo(0, 0);
     }
 
@@ -73,30 +73,30 @@ function generateCalendar(containerId) {
     const scroller = document.getElementById(containerId);
     if (!scroller) return;
 
-    scroller.innerHTML = ''; 
+    scroller.innerHTML = '';
 
     const today = new Date();
     const daysOfWeek = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
-    
+
     for (let i = 30; i >= 0; i--) {
         const date = new Date(today);
-        date.setDate(today.getDate() - i); 
+        date.setDate(today.getDate() - i);
 
         const dayName = daysOfWeek[date.getDay()];
         const dayNumber = date.getDate();
-        const isToday = (i === 0); 
+        const isToday = (i === 0);
 
         // Cria a chave única da data (Ex: "2026-03-28")
         const dateStr = date.getFullYear() + '-' + String(date.getMonth() + 1).padStart(2, '0') + '-' + String(date.getDate()).padStart(2, '0');
 
         const dateItem = document.createElement('div');
         dateItem.className = `date-item ${isToday ? 'active' : ''}`;
-        
+
         dateItem.onclick = () => {
             scroller.querySelectorAll('.date-item').forEach(el => el.classList.remove('active'));
             dateItem.classList.add('active');
             dateItem.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-            
+
             // A MÁGICA: Avisa o alimentos.js que o dia mudou!
             if (typeof changeSelectedDate === 'function') {
                 changeSelectedDate(dateStr);
@@ -141,8 +141,8 @@ function setupCarousel(trackId, dotsId) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    generateCalendar('date-scroller');           
-    generateCalendar('workout-date-scroller');   
+    generateCalendar('date-scroller');
+    generateCalendar('workout-date-scroller');
 
     setupCarousel('stats-carousel', 'carousel-dots');
     setupCarousel('workout-hero-carousel', 'workout-carousel-dots');
@@ -151,10 +151,10 @@ document.addEventListener('DOMContentLoaded', () => {
 let currentWater = 0;
 function updateWater(amount) {
     currentWater += amount;
-    if(currentWater < 0) currentWater = 0;
-    
+    if (currentWater < 0) currentWater = 0;
+
     const waterDisplay = document.getElementById('water-amount');
-    if(waterDisplay) {
+    if (waterDisplay) {
         waterDisplay.textContent = currentWater + ' ml';
     }
 }
@@ -164,7 +164,7 @@ function updateWater(amount) {
 // ==========================================
 
 let exercisesDB = [];
-let currentSwapTarget = null; 
+let currentSwapTarget = null;
 
 async function loadExercises() {
     try {
@@ -176,21 +176,21 @@ async function loadExercises() {
 }
 
 function openSwapModal(btnElement, grupoMuscular) {
-    currentSwapTarget = btnElement.closest('.exercise-card'); 
+    currentSwapTarget = btnElement.closest('.exercise-card');
     const modal = document.getElementById('swap-modal');
     const listContainer = document.getElementById('alt-exercises-list');
 
     const alternativas = exercisesDB.filter(ex => ex.grupo_muscular === grupoMuscular);
     listContainer.innerHTML = '';
-    
-    if(alternativas.length === 0) {
+
+    if (alternativas.length === 0) {
         listContainer.innerHTML = '<p class="placeholder-text">Nenhuma alternativa encontrada na base de dados.</p>';
     } else {
         alternativas.forEach(ex => {
             const card = document.createElement('div');
             card.className = 'exercise-card alt-exercise-card';
-            card.onclick = () => confirmSwap(ex); 
-            
+            card.onclick = () => confirmSwap(ex);
+
             card.innerHTML = `
                 <div class="ex-image-box">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6.5 6.5h11M6.5 17.5h11M5 4v16M19 4v16M9 9h6v6H9z"></path></svg>
@@ -212,7 +212,7 @@ function closeSwapModal() {
 }
 
 function confirmSwap(exData) {
-    if(!currentSwapTarget) return;
+    if (!currentSwapTarget) return;
     const titleEl = currentSwapTarget.querySelector('h4');
     titleEl.textContent = exData.nome;
     const descEl = currentSwapTarget.querySelector('p');
@@ -241,10 +241,10 @@ function toggleDay(btn) {
 function toggleEquip(btn) {
     const container = btn.parentElement;
     const isAlreadyActive = btn.classList.contains('active');
-    
+
     // Remove o active de todos os botões desse container
     container.querySelectorAll('.equip-btn').forEach(b => b.classList.remove('active'));
-    
+
     // Se não estava ativo antes de clicar, ativa ele (permite deixar nenhum ativo se quiser)
     if (!isAlreadyActive) {
         btn.classList.add('active');
@@ -256,15 +256,15 @@ function simulateGenerate() {
     const btn = document.querySelector('.btn-submit-gen');
     const originalText = btn.textContent;
     btn.textContent = 'Mapeando músculos...';
-    
+
     setTimeout(() => {
         btn.textContent = originalText;
         closeGenerateModal();
-        
+
         // Arrasta o carrossel de volta para o Card 1 automaticamente
         const track = document.getElementById('workout-hero-carousel');
-        if(track) track.scrollTo({ left: 0, behavior: 'smooth' });
-        
+        if (track) track.scrollTo({ left: 0, behavior: 'smooth' });
+
         // No futuro: Aqui você irá ler o BD e popular a tela com os novos exercícios gerados.
     }, 1200);
 }
@@ -277,7 +277,7 @@ function simulateScan() {
     const frame = document.querySelector('.focus-frame');
     const overlay = document.getElementById('analyzing-overlay');
     const resultModal = document.getElementById('scan-result-modal');
-    
+
     // 1. Inicia o laser de escaneamento visual
     frame.classList.add('scanning');
 
@@ -285,7 +285,7 @@ function simulateScan() {
     setTimeout(() => {
         frame.classList.remove('scanning');
         overlay.classList.add('show');
-        
+
         // 3. Após mais 2.5s (simulando resposta da API), mostra o resultado
         setTimeout(() => {
             overlay.classList.remove('show');
@@ -313,28 +313,28 @@ function toggleFabMenu() {
     const overlay = document.getElementById('fab-overlay');
     const menu = document.getElementById('fab-menu');
     const fabBtn = document.getElementById('main-fab');
-    
+
     overlay.classList.toggle('show');
     menu.classList.toggle('show');
     fabBtn.classList.toggle('open');
 }
 
 function handleFabAction(action) {
-    toggleFabMenu(); 
-    
+    toggleFabMenu();
+
     setTimeout(() => {
-        if(action === 'camera') {
-            switchTab('tab-camera', null); 
+        if (action === 'camera') {
+            switchTab('tab-camera', null);
         } else if (action === 'search') {
             switchTab('tab-diet', document.getElementById('nav-diet'));
             const searchInput = document.getElementById('main-food-search');
-            if(searchInput) searchInput.focus();
+            if (searchInput) searchInput.focus();
         } else if (action === 'manual') {
             // Placeholder: Ação para registrar manualmente ao clicar no lápis
             // Pode abrir a aba de dieta ou um modal de novo alimento
             alert("Botão de registro manual clicado.");
         }
-    }, 300); 
+    }, 300);
 }
 // ==========================================
 // TELA DE PROGRESSO (FILTROS DE TEMPO)
@@ -346,12 +346,12 @@ function toggleProgTab(clickedBtn, groupId) {
     container.querySelectorAll('.prog-tab').forEach(btn => {
         btn.classList.remove('active');
     });
-    
+
     // Ativa o botão clicado
     clickedBtn.classList.add('active');
 }
 
 // Inicializador de UI e Treinos
 document.addEventListener('DOMContentLoaded', () => {
-    loadExercises(); 
+    loadExercises();
 });
