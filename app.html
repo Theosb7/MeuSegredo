@@ -1148,10 +1148,10 @@
                     <div class="profile-menu-card">
                         <div class="pref-item">
                             <span>Aparência</span>
-                            <select class="pref-select">
-                                <option>Sistema do dispositivo</option>
-                                <option>Claro</option>
-                                <option>Escuro</option>
+                            <select class="pref-select" id="theme-select" onchange="changeTheme(this.value)">
+                                <option value="system">Sistema do dispositivo</option>
+                                <option value="light">Claro</option>
+                                <option value="dark">Escuro</option>
                             </select>
                         </div>
                     </div>

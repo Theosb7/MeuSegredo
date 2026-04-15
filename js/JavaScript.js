@@ -452,4 +452,24 @@ function togglePlansModal() {
         modal.classList.toggle('hidden');
     }
 }
+}
 
+/* --- TEMA ESCURO (ONBOARDING) --- */
+function applySavedThemeOnboarding() {
+    const saved = localStorage.getItem('fitguide_theme') || 'system';
+    if (saved === 'dark') {
+        document.body.classList.add('dark-theme');
+    } else if (saved === 'light') {
+        document.body.classList.remove('dark-theme');
+    } else {
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.body.classList.add('dark-theme');
+        } else {
+            document.body.classList.remove('dark-theme');
+        }
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    applySavedThemeOnboarding();
+});

@@ -354,4 +354,73 @@ function toggleProgTab(clickedBtn, groupId) {
 // Inicializador de UI e Treinos
 document.addEventListener('DOMContentLoaded', () => {
     loadExercises();
+    applySavedTheme();
 });
+
+// ==========================================
+// TEMA ESCURO
+// ==========================================
+function changeTheme(themeVal) {
+    if (themeVal === 'dark') {
+        document.body.classList.add('dark-theme');
+        localStorage.setItem('fitguide_theme', 'dark');
+    } else if (themeVal === 'light') {
+        document.body.classList.remove('dark-theme');
+        localStorage.setItem('fitguide_theme', 'light');
+    } else {
+        localStorage.setItem('fitguide_theme', 'system');
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.body.classList.add('dark-theme');
+        } else {
+            document.body.classList.remove('dark-theme');
+        }
+    }
+}
+
+function applySavedTheme() {
+    const saved = localStorage.getItem('fitguide_theme') || 'system';
+    const select = document.getElementById('theme-select');
+
+    if (saved === 'dark') {
+        document.body.classList.add('dark-theme');
+        if (select) select.value = 'dark';
+    } else if (saved === 'light') {
+        document.body.classList.remove('dark-theme');
+        if (select) select.value = 'light';
+    } else {
+        if (select) select.value = 'system';
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.body.classList.add('dark-theme');
+        } else {
+            document.body.classList.remove('dark-theme');
+        }
+    }
+}
+
+// =====================================
+// Suporte ao Scroll Horizontal no Computador
+// =====================================
+function initDesktopScroll() {
+    const containers = document.querySelectorAll('.date-scroller, .carousel-track, .workout-carousel-track, .scroll-ruler, .week-selector-container');
+    
+    containers.forEach(container => {
+        // Garantir que so aplica prevencao se houver overflow horizontal
+        if (window.getComputedStyle(container).overflowX !== 'auto' && window.getComputedStyle(container).overflowX !== 'scroll') return;
+        
+        container.addEventListener('wheel', (evt) => {
+            // Ignora se estiver pressionando Shift (navegação horizontal nativa já usa shift)
+            if (evt.shiftKey) return; 
+
+            if (evt.deltaY !== 0) {
+                evt.preventDefault();
+                container.scrollLeft += evt.deltaY;
+            }
+        }, { passive: false });
+    });
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initDesktopScroll);
+} else {
+    initDesktopScroll();
+}

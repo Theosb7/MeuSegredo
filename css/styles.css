@@ -71,7 +71,18 @@ h2 { font-size: 24px; margin-bottom: 8px; }
 .login-text { text-align: center; margin-top: 16px; font-size: 14px; color: var(--text-muted); }
 .login-text a { color: var(--primary); font-weight: 600; text-decoration: none; }
 
-.top-bar { padding: 20px 24px; display: flex; align-items: center; gap: 16px; }
+.top-bar { 
+    padding: 20px 24px; display: flex; align-items: center; gap: 16px; 
+    position: sticky; top: 0; z-index: 10;
+    background: transparent; border-bottom: none;
+}
+.top-bar::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: -24px;
+    z-index: -1; pointer-events: none;
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+}
 .back-btn { background: none; border: none; font-size: 24px; color: var(--text-muted); cursor: pointer; }
 .text-white { color: white !important; }
 .progress-bar { flex: 1; height: 6px; background: var(--border-color); border-radius: 4px; }
@@ -215,3 +226,21 @@ h2 { font-size: 24px; margin-bottom: 8px; }
 .plan-right { display: flex; flex-direction: column; align-items: flex-end; }
 .plan-price-value { font-weight: 800; font-size: 16px; color: var(--text-dark); }
 .plan-price-period { font-size: 12px; color: var(--text-muted); font-weight: 600; }
+
+/* ==========================================
+   TEMA ESCURO (DARK THEME OVERRIDES)
+   ========================================== */
+body.dark-theme {
+    --bg-color: #030712;
+    --card-bg: #1F2937;
+    --text-dark: #F3F4F6;
+    --text-muted: #9CA3AF;
+    --border-color: #374151;
+    --btn-dark: #374151;
+    --primary-light: #134e4a;
+    background-color: #030712;
+}
+body.dark-theme .app-header, body.dark-theme .top-bar { 
+    background: transparent;
+}
+body.dark-theme .lang-menu { border-color: var(--border-color); }

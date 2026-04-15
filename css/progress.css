@@ -3,15 +3,22 @@
    ========================================== */
 
 #tab-progress {
-    /* Puxa o mesmo gradiente de fundo da tela de Início */
-    background: linear-gradient(to bottom, #F0E8ED 0%, #F9FAFB 25%);
+    /* Puxa o mesmo gradiente de fundo da tela de Início (suportando light e dark mode) */
+    background: linear-gradient(to bottom, var(--bg-grad-top, #F0E8ED) 0%, var(--bg-grad-bottom, #F9FAFB) 25%);
     color: var(--text-dark);
 }
 
 .progress-header {
     padding: 24px 24px 16px 24px;
     position: sticky; top: 0; z-index: 10;
-    background: transparent; /* Deixa o gradiente de fundo aparecer */
+    background: transparent; border-bottom: none;
+}
+.progress-header::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: -24px;
+    z-index: -1; pointer-events: none;
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
 }
 
 .progress-header h2 { font-size: 28px; font-weight: 800; color: var(--text-dark); margin: 0; letter-spacing: -0.5px; }
@@ -155,3 +162,19 @@
 .imc-legend { display: flex; justify-content: space-between; }
 .imc-legend span { font-size: 10px; font-weight: 600; color: var(--text-muted); display: flex; align-items: center; gap: 4px; }
 .dot-c { width: 6px; height: 6px; border-radius: 50%; }
+
+/* ==========================================
+   TEMA ESCURO (DARK THEME OVERRIDES)
+   ========================================== */
+body.dark-theme .prog-bar-bg { background: #374151; }
+body.dark-theme .progress-header { 
+    background: transparent;
+}
+body.dark-theme .w-dot { background: #374151; }
+body.dark-theme .prog-tabs-bar { background: #1F2937; }
+body.dark-theme .prog-tab.active { background: #374151; color: white; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
+body.dark-theme .dashed-line { border-bottom-color: #4B5563; }
+body.dark-theme .chart-solid-line { background: var(--text-dark); }
+body.dark-theme .photo-icon-box { background: #374151; }
+body.dark-theme .btn-prog-action { color: var(--text-dark); border-color: var(--border-color); }
+body.dark-theme .fire-number { color: #000; }

@@ -20,7 +20,18 @@
 #tab-dashboard { background: linear-gradient(to bottom, var(--bg-grad-top) 0%, var(--bg-grad-bottom) 25%); }
 
 /* Header e Calendário */
-.dash-header { display: flex; justify-content: space-between; align-items: center; padding: 20px 24px 16px 24px; position: sticky; top: 0; z-index: 10; }
+.dash-header { 
+    display: flex; justify-content: space-between; align-items: center; padding: 20px 24px 16px 24px; 
+    position: sticky; top: 0; z-index: 10; 
+    background: transparent; border-bottom: none;
+}
+.dash-header::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: -24px;
+    z-index: -1; pointer-events: none;
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+}
 .header-brand { display: flex; align-items: center; gap: 8px; }
 .app-logo { width: 28px; height: 28px; object-fit: contain; }
 .header-brand h2 { font-size: 22px; font-weight: 800; color: var(--text-primary); letter-spacing: -0.5px; margin: 0; }
@@ -190,3 +201,34 @@
 .sug-cals svg { color: var(--text-primary); width: 22px; height: 22px; }
 .sug-macros { display: flex; gap: 16px; font-size: 18px; font-weight: 800; color: var(--text-primary); }
 .sug-macros span { display: flex; align-items: center; gap: 6px; }
+
+/* ==========================================
+   TEMA ESCURO (DARK THEME OVERRIDES)
+   ========================================== */
+body.dark-theme {
+    --bg-grad-top: #2D232C; 
+    --bg-grad-bottom: #030712; 
+    --surface-card: #1F2937;
+    --text-primary: #F3F4F6;
+    --text-secondary: #9CA3AF;
+}
+body.dark-theme .streak-badge { background: var(--surface-card); }
+body.dark-theme .dash-header { 
+    background: transparent;
+}
+body.dark-theme .date-item.active .day-circle { background: var(--surface-card); }
+body.dark-theme .circular-chart-large .circle-bg, 
+body.dark-theme .circular-chart .circle-bg { stroke: #374151; }
+body.dark-theme .cal-ring-inner { background: #374151; }
+body.dark-theme .health-bar { background: #374151; }
+body.dark-theme .water-icon-large { background: #1E3A8A; color: #60A5FA; }
+body.dark-theme .circle-btn:not(.btn-dark) { color: #F3F4F6; border-color: #F3F4F6; }
+body.dark-theme .sug-img { background: #374151; }
+body.dark-theme .action-btn { color: #F3F4F6; }
+body.dark-theme .play-btn { color: #030712; background: #F3F4F6; }
+body.dark-theme .bg-red-light { background-color: rgba(248, 113, 113, 0.2); }
+body.dark-theme .bg-yellow-light { background-color: rgba(251, 191, 36, 0.2); }
+body.dark-theme .bg-blue-light { background-color: rgba(96, 165, 250, 0.2); }
+body.dark-theme .bg-purple-light { background-color: rgba(192, 132, 252, 0.2); }
+body.dark-theme .bg-pink-light { background-color: rgba(244, 114, 182, 0.2); }
+body.dark-theme .bg-orange-light { background-color: rgba(251, 146, 60, 0.2); }

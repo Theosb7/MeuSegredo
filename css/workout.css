@@ -97,3 +97,25 @@
 
 .btn-submit-gen { width: 100%; background: #0B1426; color: white; border: none; padding: 18px; border-radius: 16px; font-size: 16px; font-weight: 700; cursor: pointer; margin-top: 8px; box-shadow: 0 4px 12px rgba(11, 20, 38, 0.2); transition: transform 0.2s; }
 .btn-submit-gen:active { transform: scale(0.98); }
+
+#tab-workout {
+    background: linear-gradient(to bottom, var(--bg-grad-top, #F0E8ED) 0%, var(--bg-grad-bottom, #F9FAFB) 25%);
+    color: var(--text-dark);
+}
+
+/* ==========================================
+   TEMA ESCURO (DARK THEME OVERRIDES)
+   ========================================== */
+body.dark-theme .dark-badge { background: #374151; color: var(--text-dark); }
+body.dark-theme .btn-dark-outline { color: var(--text-dark); border-color: var(--border-color); }
+body.dark-theme .ex-image-box { background: #374151; color: var(--text-dark); }
+body.dark-theme .ex-info h4 { color: var(--text-dark); }
+body.dark-theme .bottom-sheet { background: var(--card-bg); }
+body.dark-theme .sheet-header h3 { color: var(--text-dark); }
+body.dark-theme .generate-form-container { background: #1F2937; } 
+body.dark-theme .day-circle-btn { background: #374151; color: var(--text-dark); }
+body.dark-theme .day-circle-btn.active { background: var(--text-dark); color: #1F2937; }
+body.dark-theme .equip-btn { background: #374151; color: var(--text-dark); }
+body.dark-theme .equip-btn.active { border-color: var(--text-dark); }
+body.dark-theme .restrict-btn { background: #374151; color: var(--text-dark); }
+body.dark-theme .btn-submit-gen { background: var(--text-dark); color: #1F2937; }
