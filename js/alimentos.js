@@ -3,17 +3,21 @@
 // ==========================================
 let foodsDB = [];
 
-const META_DIARIA = { kcal: 2306, prot: 129, carb: 303, fat: 64, fib: 38, sug: 87, sod: 2300 };
+// Injeta as metas dinâmicas baseadas no biotipo do usuário vindo do profile.js
+let META_DIARIA = (typeof calculateDynamicMetas === 'function') ? calculateDynamicMetas() : { kcal: 2306, prot: 129, carb: 303, fat: 64, fib: 38, sug: 87, sod: 2300 };
 
-// Criamos um molde com os nomes corretos que a interface espera
-const DEFAULT_MACROS = {
-    kcalRest: META_DIARIA.kcal, protRest: META_DIARIA.prot, carbRest: META_DIARIA.carb, gordRest: META_DIARIA.fat,
-    fibRest: META_DIARIA.fib, sugRest: META_DIARIA.sug, sodRest: META_DIARIA.sod
-};
+function getDefaultMacros() {
+    // Atualiza caso o usuário mude no perfil durante a sessão
+    META_DIARIA = (typeof calculateDynamicMetas === 'function') ? calculateDynamicMetas() : META_DIARIA;
+    return {
+        kcalRest: META_DIARIA.kcal, protRest: META_DIARIA.prot, carbRest: META_DIARIA.carb, gordRest: META_DIARIA.fat,
+        fibRest: META_DIARIA.fib, sugRest: META_DIARIA.sug, sodRest: META_DIARIA.sod
+    };
+}
 
 // 1. ESTADO DINÂMICO (Baseado no dia que o usuário clicar)
 let consumedFoods = [];
-let dashMacros = { ...DEFAULT_MACROS };
+let dashMacros = getDefaultMacros();
 let currentSelectedDate = '';
 
 // Gera formato YYYY-MM-DD
@@ -29,11 +33,11 @@ function loadDayData(dateStr) {
     if (savedData) {
         consumedFoods = savedData.consumedFoods || [];
         // Se der algum erro nos dados salvos, ele puxa o molde correto
-        dashMacros = savedData.dashMacros || { ...DEFAULT_MACROS };
+        dashMacros = savedData.dashMacros || getDefaultMacros();
     } else {
         // Se for um dia novo ou vazio, reseta usando o molde com os nomes "Rest"
         consumedFoods = [];
-        dashMacros = { ...DEFAULT_MACROS };
+        dashMacros = getDefaultMacros();
     }
 
     updateDashboardUI();

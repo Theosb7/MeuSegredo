@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
@@ -899,7 +899,7 @@
                             <span>Ajustar macronutrientes</span>
                         </button>
                         <div class="profile-divider"></div>
-                        <button class="profile-menu-item">
+                        <button class="profile-menu-item" onclick="switchTab('screen-personal-details', null)">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
@@ -1066,16 +1066,18 @@
                 <div class="screen-body profile-body">
                     <div class="target-weight-card">
                         <div>
-                            <p class="target-lbl">Peso MetaP</p>
-                            <h3 class="target-val">70 kg</h3>
+                            <p class="target-lbl">Objetivo</p>
+                            <h3 class="target-val" id="pd-val-goal">Manter Peso</h3>
                         </div>
-                        <button class="btn-outline-small">Mudar Objetivo</button>
+                        <button class="btn-outline-small" onclick="updateProfilePrompt('objective')">Mudar
+                            Objetivo</button>
                     </div>
 
                     <div class="profile-menu-card">
                         <div class="profile-edit-item">
-                            <div class="edit-item-info"><span>Peso Atual</span><strong>75 kg</strong></div>
-                            <button class="icon-edit-btn">
+                            <div class="edit-item-info"><span>Peso Atual</span><strong id="pd-val-weight">75 kg</strong>
+                            </div>
+                            <button class="icon-edit-btn" onclick="updateProfilePrompt('weight')">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M12 20h9"></path>
@@ -1085,8 +1087,9 @@
                         </div>
                         <div class="profile-divider"></div>
                         <div class="profile-edit-item">
-                            <div class="edit-item-info"><span>Altura</span><strong>175 cm</strong></div>
-                            <button class="icon-edit-btn">
+                            <div class="edit-item-info"><span>Altura</span><strong id="pd-val-height">175 cm</strong>
+                            </div>
+                            <button class="icon-edit-btn" onclick="updateProfilePrompt('height')">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M12 20h9"></path>
@@ -1096,8 +1099,8 @@
                         </div>
                         <div class="profile-divider"></div>
                         <div class="profile-edit-item">
-                            <div class="edit-item-info"><span>Data de nascimento</span><strong>01/01/1990</strong></div>
-                            <button class="icon-edit-btn">
+                            <div class="edit-item-info"><span>Idade</span><strong id="pd-val-age">30 anos</strong></div>
+                            <button class="icon-edit-btn" onclick="updateProfilePrompt('age')">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M12 20h9"></path>
@@ -1107,8 +1110,9 @@
                         </div>
                         <div class="profile-divider"></div>
                         <div class="profile-edit-item">
-                            <div class="edit-item-info"><span>Gênero</span><strong>Masculino</strong></div>
-                            <button class="icon-edit-btn">
+                            <div class="edit-item-info"><span>Gênero</span><strong id="pd-val-gender">Masculino</strong>
+                            </div>
+                            <button class="icon-edit-btn" onclick="updateProfilePrompt('gender')">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M12 20h9"></path>
@@ -1301,6 +1305,178 @@
             </div>
         </div>
 
+        <!-- EDIT SCREENS (Copied from Onboarding) -->
+        <section id="screen-edit-age" class="app-screen">
+            <header class="app-header header-with-back">
+                <button class="icon-btn back-btn" onclick="switchTab('screen-personal-details', null)">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                </button>
+                <h2 style="margin-right: auto;">Atualizar Idade</h2>
+            </header>
+            <div class="screen-body" style="display: flex; flex-direction: column; align-items: center;">
+                <div class="picker-container" style="margin-top: 40px;">
+                    <div class="picker-frame"></div>
+                    <div class="scroll-picker" id="edit-age-picker"></div>
+                </div>
+                <div class="bottom-action" style="margin-top: auto; padding-top: 20px;">
+                    <button class="btn-primary" onclick="saveProfileEdit('age')">Salvar Alteração</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="screen-edit-weight" class="app-screen">
+            <header class="app-header header-with-back">
+                <button class="icon-btn back-btn" onclick="switchTab('screen-personal-details', null)">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                </button>
+                <h2 style="margin-right: auto;">Atualizar Peso</h2>
+            </header>
+            <div class="screen-body" style="display: flex; flex-direction: column; align-items: center;">
+                <div class="weight-display" style="margin-top: 40px;">
+                    <span id="edit-weight-value">70</span><span class="weight-unit"
+                        id="edit-weight-unit-label">kg</span>
+                </div>
+                <div class="ruler-container">
+                    <div class="ruler-pointer"></div>
+                    <div class="scroll-ruler" id="edit-weight-picker"></div>
+                </div>
+                <div class="unit-toggle">
+                    <button class="unit-btn active" onclick="setEditWeightUnit('kg')"
+                        id="btn-edit-weight-kg">kg</button>
+                    <button class="unit-btn" onclick="setEditWeightUnit('lbs')" id="btn-edit-weight-lbs">lbs</button>
+                </div>
+                <div class="bottom-action" style="margin-top: auto; padding-top: 20px;">
+                    <button class="btn-primary" onclick="saveProfileEdit('weight')">Salvar Alteração</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="screen-edit-height" class="app-screen">
+            <header class="app-header header-with-back">
+                <button class="icon-btn back-btn" onclick="switchTab('screen-personal-details', null)">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                </button>
+                <h2 style="margin-right: auto;">Atualizar Altura</h2>
+            </header>
+            <div class="screen-body">
+                <div class="height-layout" style="margin-top: 20px;">
+                    <div class="height-unit-toggle">
+                        <button class="v-unit-btn active" onclick="setEditHeightUnit('cm')"
+                            id="btn-edit-height-cm">cm</button>
+                        <button class="v-unit-btn" onclick="setEditHeightUnit('ft')" id="btn-edit-height-ft">ft</button>
+                    </div>
+                    <div class="height-display">
+                        <span id="edit-height-value">160</span><span class="height-unit-label"
+                            id="edit-height-unit-label">cm</span>
+                    </div>
+                    <div class="v-ruler-container" style="height: 350px;">
+                        <div class="v-ruler-pointer"></div>
+                        <div class="scroll-v-ruler" id="edit-height-picker"></div>
+                    </div>
+                </div>
+                <div class="bottom-action" style="margin-top: auto; padding-top: 20px;">
+                    <button class="btn-primary" onclick="saveProfileEdit('height')">Salvar Alteração</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="screen-edit-gender" class="app-screen">
+            <header class="app-header header-with-back">
+                <button class="icon-btn back-btn" onclick="switchTab('screen-personal-details', null)">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                </button>
+                <h2 style="margin-right: auto;">Atualizar Gênero</h2>
+            </header>
+            <div class="screen-body">
+                <div class="options-group" style="margin-top: 20px;">
+                    <label class="option-card">
+                        <input type="radio" name="edit_gender" value="male">
+                        <div class="card-icon-content">
+                            <span class="emoji-icon bg-blue">👦</span>
+                            <span class="card-content">Masculino</span>
+                        </div>
+                        <div class="radio-indicator"></div>
+                    </label>
+                    <label class="option-card">
+                        <input type="radio" name="edit_gender" value="female">
+                        <div class="card-icon-content">
+                            <span class="emoji-icon bg-pink">👩</span>
+                            <span class="card-content">Feminino</span>
+                        </div>
+                        <div class="radio-indicator"></div>
+                    </label>
+                    <label class="option-card">
+                        <input type="radio" name="edit_gender" value="other">
+                        <div class="card-icon-content">
+                            <span class="emoji-icon bg-yellow">😶</span>
+                            <span class="card-content">Prefiro não dizer</span>
+                        </div>
+                        <div class="radio-indicator"></div>
+                    </label>
+                </div>
+                <div class="bottom-action" style="margin-top: auto; padding-top: 20px;">
+                    <button class="btn-primary" onclick="saveProfileEdit('gender')">Salvar Alteração</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="screen-edit-objective" class="app-screen">
+            <header class="app-header header-with-back">
+                <button class="icon-btn back-btn" onclick="switchTab('screen-personal-details', null)">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                </button>
+                <h2 style="margin-right: auto;">Atualizar Objetivo</h2>
+            </header>
+            <div class="screen-body">
+                <div class="options-group" style="margin-top: 20px;">
+                    <label class="option-card">
+                        <input type="radio" name="edit_objective" value="lose">
+                        <span class="card-content">Perder peso</span>
+                        <div class="radio-indicator"></div>
+                    </label>
+                    <label class="option-card">
+                        <input type="radio" name="edit_objective" value="gain">
+                        <span class="card-content">Ganhar massa muscular</span>
+                        <div class="radio-indicator"></div>
+                    </label>
+                    <label class="option-card">
+                        <input type="radio" name="edit_objective" value="maintain">
+                        <span class="card-content">Manter peso</span>
+                        <div class="radio-indicator"></div>
+                    </label>
+                    <label class="option-card">
+                        <input type="radio" name="edit_objective" value="performance">
+                        <span class="card-content">Melhorar performance</span>
+                        <div class="radio-indicator"></div>
+                    </label>
+                </div>
+                <div class="bottom-action" style="margin-top: auto; padding-top: 20px;">
+                    <button class="btn-primary" onclick="saveProfileEdit('objective')">Salvar Alteração</button>
+                </div>
+            </div>
+        </section>
+
+
         <!-- Modal Idioma -->
         <div id="modal-language" class="modal-overlay center-modal">
             <div class="modal-center-card">
@@ -1344,6 +1520,7 @@
 
     </div>
 
+    <script src="js/profile.js?v=2"></script>
     <script src="js/alimentos.js?v=2"></script>
     <script src="js/app.js?v=2"></script>
 </body>
