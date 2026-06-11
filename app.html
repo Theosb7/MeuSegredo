@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
@@ -17,6 +17,53 @@
 </head>
 
 <body>
+    <script>
+        // Verificação de autenticação no servidor
+        fetch('api.php?action=session')
+            .then(res => res.json())
+            .then(data => {
+                if (!data.logged_in) {
+                    window.location.href = 'login.html?error=NãoAutenticado';
+                } else {
+                    document.getElementById('header-user-name').textContent = data.nome;
+                    // Sincronizar dados iniciais
+                    fetch('api.php?action=sync')
+                        .then(res => res.json())
+                        .then(syncData => {
+                            if (syncData.status === 'success' && syncData.data) {
+                                for (const [key, value] of Object.entries(syncData.data)) {
+                                    // Use original setItem para não causar loop
+                                    Storage.prototype.setItem.call(localStorage, key, JSON.stringify(value));
+                                }
+                                // Recarregar a página se houve sincronização pela primeira vez na sessão
+                                if (!sessionStorage.getItem('synced_once')) {
+                                    sessionStorage.setItem('synced_once', 'true');
+                                    window.location.reload();
+                                }
+                            }
+                        });
+
+                    // Sobrescrever localStorage.setItem para salvar no banco SQLite automaticamente!
+                    const originalSetItem = localStorage.setItem;
+                    localStorage.setItem = function (key, value) {
+                        originalSetItem.apply(this, arguments);
+
+                        // Envia para o banco de dados em background
+                        let parsedValue = value;
+                        try { parsedValue = JSON.parse(value); } catch (e) { }
+
+                        fetch('api.php?action=sync', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ key: key, value: parsedValue })
+                        });
+                    };
+                }
+            })
+            .catch(() => {
+                window.location.href = 'login.html';
+            });
+    </script>
     <div id="app-container">
 
         <div id="fab-overlay" class="fab-overlay" onclick="toggleFabMenu()"></div>
@@ -52,7 +99,7 @@
                 <header class="dash-header">
                     <div class="header-brand">
                         <img src="assets/logo.svg" alt="NutriAI" class="app-logo">
-                        <h2>NutriAI</h2>
+                        <h2>Olá, <span id="header-user-name">Usuário</span>!</h2>
                     </div>
                     <div class="streak-badge">
                         <span>🔥</span> 0

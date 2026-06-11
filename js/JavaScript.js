@@ -452,7 +452,6 @@ function togglePlansModal() {
         modal.classList.toggle('hidden');
     }
 }
-}
 
 /* --- TEMA ESCURO (ONBOARDING) --- */
 function applySavedThemeOnboarding() {

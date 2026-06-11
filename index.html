@@ -33,7 +33,7 @@
             
             <div class="bottom-action">
                 <button class="btn-primary" onclick="nextStep('step-quiz-age')" data-i18n="btn_start">Começar</button>
-                <p class="login-text"><span data-i18n="already_have_account">Já tem conta?</span> <a href="app.html" data-i18n="login">Entrar</a></p>
+                <p class="login-text"><span data-i18n="already_have_account">Já tem conta?</span> <a href="login.html" data-i18n="login">Entrar</a></p>
             </div>
         </section>
 
@@ -480,6 +480,28 @@
             </div>
         </section>
 
+        <section id="step-register" class="screen">
+            <div class="top-bar">
+                <button class="icon-btn back-btn" onclick="nextStep('step-paywall')">←</button>
+                <div class="progress-bar"><div class="progress" style="width: 100%;"></div></div>
+            </div>
+            <div class="content-wrapper" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+                <h2 data-i18n="register_title">Quase lá! 🎉</h2>
+                <p class="subtitle" data-i18n="register_subtitle">Crie sua conta para salvar seu progresso e receber seu plano personalizado.</p>
+                
+                <form id="register-form" action="api.php?action=register" method="POST" style="width: 100%; margin-top: 20px;">
+                    <div class="input-group" style="display: flex; flex-direction: column; gap: 15px;">
+                        <input type="text" name="nome" placeholder="Seu nome completo" required class="form-control" style="padding: 16px; border-radius: 12px; border: 1.5px solid #E5E7EB; font-size: 16px; width: 100%; box-sizing: border-box; outline: none; transition: border-color 0.2s;">
+                        <input type="email" name="email" placeholder="seuemail@exemplo.com" required class="form-control" style="padding: 16px; border-radius: 12px; border: 1.5px solid #E5E7EB; font-size: 16px; width: 100%; box-sizing: border-box; outline: none; transition: border-color 0.2s;">
+                        <input type="password" name="senha" placeholder="Mínimo 6 caracteres" required class="form-control" style="padding: 16px; border-radius: 12px; border: 1.5px solid #E5E7EB; font-size: 16px; width: 100%; box-sizing: border-box; outline: none; transition: border-color 0.2s;">
+                    </div>
+                </form>
+            </div>
+            <div class="bottom-action">
+                <button class="btn-primary" onclick="document.getElementById('register-form').submit()" data-i18n="btn_register">Criar Minha Conta</button>
+            </div>
+        </section>
+
         <section id="step-paywall" class="screen paywall-bg">
             <div class="top-bar">
                 <button class="icon-btn back-btn text-white" onclick="nextStep('step-quiz-restrictions')">✕</button>
@@ -488,7 +510,7 @@
                 <div class="paywall-card">
                     <h2 data-i18n="paywall_title">Monitore diariamente cada dose</h2>
                     <h3 class="price"><span data-i18n="price_value">R$ 12,49 /mês</span> <span class="light-price" data-i18n="price_weekly">(R$ 3,12/semana)</span></h3>
-                    <button class="btn-primary btn-unlock" onclick="window.location.href='app.html'" data-i18n="btn_start_journey_lock">COMEÇAR MINHA JORNADA 🔒</button>
+                    <button class="btn-primary btn-unlock" onclick="nextStep('step-register')" data-i18n="btn_start_journey_lock">COMEÇAR MINHA JORNADA 🔒</button>
                     <a href="#" class="view-plans" onclick="togglePlansModal()" data-i18n="view_plans">VER OS PLANOS</a>
                     <div class="legal-links">
                         <span data-i18n="terms">Termos</span> • <span data-i18n="privacy">Privacidade</span> • <span data-i18n="restore">Restaurar</span>
@@ -525,7 +547,7 @@
                             </div>
                         </label>
                     </div>
-                    <button class="btn-primary btn-unlock" onclick="window.location.href='app.html'" data-i18n="btn_start_journey_lock">COMEÇAR MINHA JORNADA 🔒</button>
+                    <button class="btn-primary btn-unlock" onclick="nextStep('step-register')" data-i18n="btn_start_journey_lock">COMEÇAR MINHA JORNADA 🔒</button>
                 </div>
             </div>
         </section>
