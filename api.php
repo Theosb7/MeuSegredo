@@ -151,6 +151,41 @@ if ($action === 'sync') {
     }
 }
 
+if ($action === 'delete_account') {
+    header('Content-Type: application/json');
+    if (!isset($_SESSION['usuario_id'])) {
+        echo json_encode(['status' => 'error', 'message' => 'Não autenticado']);
+        exit;
+    }
+
+    $userId = $_SESSION['usuario_id'];
+    try {
+        $pdo->beginTransaction();
+
+        // Excluir dados do usuário
+        $stmt = $pdo->prepare("DELETE FROM usuario_dados WHERE usuario_id = ?");
+        $stmt->execute([$userId]);
+
+        // Excluir usuário
+        $stmt2 = $pdo->prepare("DELETE FROM usuarios WHERE id = ?");
+        $stmt2->execute([$userId]);
+
+        $pdo->commit();
+
+        // Destruir sessão
+        session_destroy();
+
+        echo json_encode(['status' => 'success']);
+        exit;
+    } catch (Exception $e) {
+        if ($pdo->inTransaction()) {
+            $pdo->rollBack();
+        }
+        echo json_encode(['status' => 'error', 'message' => 'Erro ao excluir conta: ' . $e->getMessage()]);
+        exit;
+    }
+}
+
 // Se não for nenhuma ação, retorna 404
 header("HTTP/1.0 404 Not Found");
 echo "Endpoint API inválido.";

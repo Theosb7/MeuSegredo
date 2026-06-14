@@ -189,6 +189,49 @@ window.onload = () => {
     initAgePicker(); 
     initWeightPicker(); 
     initHeightPicker(); 
+
+    // Tratar erros de registro vindos da API
+    const urlParams = new URLSearchParams(window.location.search);
+    const error = urlParams.get('error');
+    if (error) {
+        let errorMsg = 'Ocorreu um erro no cadastro. Tente novamente.';
+        if (error === 'EmailEmUso') {
+            errorMsg = 'Este e-mail já está cadastrado. Use outro e-mail ou faça login.';
+        } else if (error === 'CamposVazios') {
+            errorMsg = 'Todos os campos de cadastro são obrigatórios.';
+        }
+
+        const registerWrapper = document.querySelector('#step-register .content-wrapper');
+        if (registerWrapper) {
+            // Remover alertas de erro anteriores
+            const oldErrors = registerWrapper.querySelectorAll('.alert-error');
+            oldErrors.forEach(e => e.remove());
+
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'alert-error';
+            errorDiv.style.backgroundColor = '#FEE2E2';
+            errorDiv.style.color = '#B91C1C';
+            errorDiv.style.padding = '12px';
+            errorDiv.style.borderRadius = '8px';
+            errorDiv.style.marginBottom = '16px';
+            errorDiv.style.fontSize = '14px';
+            errorDiv.style.fontWeight = '600';
+            errorDiv.style.textAlign = 'center';
+            errorDiv.style.width = '100%';
+            errorDiv.style.boxSizing = 'border-box';
+            errorDiv.textContent = errorMsg;
+
+            const form = document.getElementById('register-form');
+            if (form) {
+                registerWrapper.insertBefore(errorDiv, form);
+            } else {
+                registerWrapper.appendChild(errorDiv);
+            }
+        }
+        
+        // Redireciona direto para o passo de registro sem perder as variáveis locais
+        nextStep('step-register');
+    }
 };
 
 /* --- IDADE --- */

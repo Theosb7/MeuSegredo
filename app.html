@@ -18,6 +18,35 @@
 
 <body>
     <script>
+        // Função para realizar logout de forma limpa e segura
+        function logoutUser() {
+            localStorage.clear();
+            sessionStorage.clear();
+            window.location.href = 'api.php?action=logout';
+        }
+
+        // Função para exclusão completa da conta do usuário
+        function deleteAccount() {
+            if (confirm('Tem certeza de que deseja excluir permanentemente sua conta e todos os seus dados? Esta ação não pode ser desfeita.')) {
+                fetch('api.php?action=delete_account')
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.status === 'success') {
+                            localStorage.clear();
+                            sessionStorage.clear();
+                            alert('Sua conta foi excluída com sucesso.');
+                            window.location.href = 'index.html';
+                        } else {
+                            alert('Erro ao excluir conta: ' + (data.message || 'Erro desconhecido.'));
+                        }
+                    })
+                    .catch(err => {
+                        console.error(err);
+                        alert('Erro ao conectar ao servidor para excluir conta.');
+                    });
+            }
+        }
+
         // Verificação de autenticação no servidor
         fetch('api.php?action=session')
             .then(res => res.json())
@@ -31,10 +60,37 @@
                         .then(res => res.json())
                         .then(syncData => {
                             if (syncData.status === 'success' && syncData.data) {
-                                for (const [key, value] of Object.entries(syncData.data)) {
-                                    // Use original setItem para não causar loop
-                                    Storage.prototype.setItem.call(localStorage, key, JSON.stringify(value));
+                                // Se o banco possui dados para este usuário, carregamos
+                                if (Object.keys(syncData.data).length > 0) {
+                                    // Limpar dados locais anteriores de outros usuários (preservando idioma/tema)
+                                    const savedLang = localStorage.getItem('fitguide_user_lang');
+                                    const savedTheme = localStorage.getItem('fitguide_theme');
+                                    localStorage.clear();
+                                    if (savedLang) localStorage.setItem('fitguide_user_lang', savedLang);
+                                    if (savedTheme) localStorage.setItem('fitguide_theme', savedTheme);
+
+                                    for (const [key, value] of Object.entries(syncData.data)) {
+                                        // Use original setItem para não causar loop
+                                        Storage.prototype.setItem.call(localStorage, key, JSON.stringify(value));
+                                    }
+                                } else {
+                                    // Se o banco está vazio (novo usuário), enviamos o onboarding inicial do localStorage
+                                    for (let i = 0; i < localStorage.length; i++) {
+                                        const key = localStorage.key(i);
+                                        if (key && (key.startsWith('fitguide_') || key.startsWith('diet_'))) {
+                                            const value = localStorage.getItem(key);
+                                            let parsedValue = value;
+                                            try { parsedValue = JSON.parse(value); } catch (e) { }
+
+                                            fetch('api.php?action=sync', {
+                                                method: 'POST',
+                                                headers: { 'Content-Type': 'application/json' },
+                                                body: JSON.stringify({ key: key, value: parsedValue })
+                                            });
+                                        }
+                                    }
                                 }
+
                                 // Recarregar a página se houve sincronização pela primeira vez na sessão
                                 if (!sessionStorage.getItem('synced_once')) {
                                     sessionStorage.setItem('synced_once', 'true');
@@ -48,15 +104,17 @@
                     localStorage.setItem = function (key, value) {
                         originalSetItem.apply(this, arguments);
 
-                        // Envia para o banco de dados em background
-                        let parsedValue = value;
-                        try { parsedValue = JSON.parse(value); } catch (e) { }
+                        // Apenas salvar chaves específicas do aplicativo
+                        if (key.startsWith('fitguide_') || key.startsWith('diet_')) {
+                            let parsedValue = value;
+                            try { parsedValue = JSON.parse(value); } catch (e) { }
 
-                        fetch('api.php?action=sync', {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({ key: key, value: parsedValue })
-                        });
+                            fetch('api.php?action=sync', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({ key: key, value: parsedValue })
+                            });
+                        }
                     };
                 }
             })
@@ -1069,7 +1127,7 @@
                     <!-- Ações da Conta -->
                     <h3 class="profile-section-title">Ações da Conta</h3>
                     <div class="profile-menu-card">
-                        <button class="profile-menu-item">
+                        <button class="profile-menu-item" onclick="logoutUser()">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
@@ -1079,7 +1137,7 @@
                             <span>Sair</span>
                         </button>
                         <div class="profile-divider"></div>
-                        <button class="profile-menu-item" style="color: #EF4444;">
+                        <button class="profile-menu-item" style="color: #EF4444;" onclick="deleteAccount()">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"></path>
