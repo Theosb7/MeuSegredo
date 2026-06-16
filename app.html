@@ -22,13 +22,13 @@
         function logoutUser() {
             localStorage.clear();
             sessionStorage.clear();
-            window.location.href = 'api.php?action=logout';
+            window.location.href = 'Controller/api.php?action=logout';
         }
 
         // Função para exclusão completa da conta do usuário
         function deleteAccount() {
             if (confirm('Tem certeza de que deseja excluir permanentemente sua conta e todos os seus dados? Esta ação não pode ser desfeita.')) {
-                fetch('api.php?action=delete_account')
+                fetch('Controller/api.php?action=delete_account')
                     .then(res => res.json())
                     .then(data => {
                         if (data.status === 'success') {
@@ -48,7 +48,7 @@
         }
 
         // Verificação de autenticação no servidor
-        fetch('api.php?action=session')
+        fetch('Controller/api.php?action=session')
             .then(res => res.json())
             .then(data => {
                 if (!data.logged_in) {
@@ -56,7 +56,7 @@
                 } else {
                     document.getElementById('header-user-name').textContent = data.nome;
                     // Sincronizar dados iniciais
-                    fetch('api.php?action=sync')
+                    fetch('Controller/api.php?action=sync')
                         .then(res => res.json())
                         .then(syncData => {
                             if (syncData.status === 'success' && syncData.data) {
@@ -82,7 +82,7 @@
                                             let parsedValue = value;
                                             try { parsedValue = JSON.parse(value); } catch (e) { }
 
-                                            fetch('api.php?action=sync', {
+                                            fetch('Controller/api.php?action=sync', {
                                                 method: 'POST',
                                                 headers: { 'Content-Type': 'application/json' },
                                                 body: JSON.stringify({ key: key, value: parsedValue })
@@ -109,7 +109,7 @@
                             let parsedValue = value;
                             try { parsedValue = JSON.parse(value); } catch (e) { }
 
-                            fetch('api.php?action=sync', {
+                            fetch('Controller/api.php?action=sync', {
                                 method: 'POST',
                                 headers: { 'Content-Type': 'application/json' },
                                 body: JSON.stringify({ key: key, value: parsedValue })
