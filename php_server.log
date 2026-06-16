@@ -1,0 +1,445 @@
+[Tue Jun 16 17:11:43 2026] PHP 8.3.6 Development Server (http://localhost:8000) started
+[Tue Jun 16 17:12:27 2026] 127.0.0.1:53796 Accepted
+[Tue Jun 16 17:12:27 2026] 127.0.0.1:53796 [200]: GET /
+[Tue Jun 16 17:12:27 2026] 127.0.0.1:53796 Closing
+[Tue Jun 16 17:12:27 2026] 127.0.0.1:53800 Accepted
+[Tue Jun 16 17:12:27 2026] 127.0.0.1:53800 [200]: GET /css/styles.css
+[Tue Jun 16 17:12:27 2026] 127.0.0.1:53812 Accepted
+[Tue Jun 16 17:12:27 2026] 127.0.0.1:53800 Closing
+[Tue Jun 16 17:12:27 2026] 127.0.0.1:53812 [200]: GET /js/JavaScript.js
+[Tue Jun 16 17:12:27 2026] 127.0.0.1:53812 Closing
+[Tue Jun 16 17:12:27 2026] 127.0.0.1:53826 Accepted
+[Tue Jun 16 17:12:27 2026] 127.0.0.1:53826 [200]: GET /assets/logo.svg
+[Tue Jun 16 17:12:27 2026] 127.0.0.1:53826 Closing
+[Tue Jun 16 17:12:34 2026] 127.0.0.1:60554 Accepted
+[Tue Jun 16 17:12:39 2026] 127.0.0.1:60554 Closed without sending a request; it was probably just an unused speculative preconnection
+[Tue Jun 16 17:12:39 2026] 127.0.0.1:60554 Closing
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:43406 Accepted
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:43406 [302]: POST /api.php?action=register
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:43406 Closing
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54246 Accepted
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54246 [200]: GET /app.html
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54246 Closing
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54250 Accepted
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54250 [200]: GET /css/app.css
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54250 Closing
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54258 Accepted
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54258 [200]: GET /css/dashboard.css
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54270 Accepted
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54258 Closing
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54272 Accepted
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54270 [200]: GET /css/workout.css
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54272 [200]: GET /css/scanner.css
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54270 Closing
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54272 Closing
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54274 Accepted
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54282 Accepted
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54274 [200]: GET /css/progress.css
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54294 Accepted
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54282 [200]: GET /css/diet.css
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54294 [200]: GET /css/recentes.css
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54306 Accepted
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54274 Closing
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54312 Accepted
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54282 Closing
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54306 [200]: GET /css/profile.css
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54312 [200]: GET /js/profile.js?v=2
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54294 Closing
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54318 Accepted
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54306 Closing
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54324 Accepted
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54312 Closing
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54318 [200]: GET /js/alimentos.js?v=2
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54324 [200]: GET /js/app.js?v=2
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54318 Closing
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54324 Closing
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54340 Accepted
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54340 [200]: GET /api.php?action=session
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54340 Closing
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54356 Accepted
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54356 [200]: GET /assets/logo.svg
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54356 Closing
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54364 Accepted
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54364 [200]: GET /data/alimentos.json
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54364 Closing
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54378 Accepted
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54378 [200]: GET /data/exercicios.json
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54378 Closing
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54394 Accepted
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54394 [200]: GET /api.php?action=sync
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54394 Closing
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54396 Accepted
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54402 Accepted
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54396 [200]: POST /api.php?action=sync
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54396 Closing
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54402 [200]: POST /api.php?action=sync
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54402 Closing
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54404 Accepted
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54404 [200]: GET /app.html
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54404 Closing
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54406 Accepted
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54406 [200]: GET /css/app.css
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54406 Closing
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54418 Accepted
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54424 Accepted
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54418 [200]: GET /css/dashboard.css
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54418 Closing
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54424 [200]: GET /css/scanner.css
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54424 Closing
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54430 Accepted
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54432 Accepted
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54440 Accepted
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54430 [200]: GET /css/workout.css
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54430 Closing
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54456 Accepted
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54440 [200]: GET /css/progress.css
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54432 [200]: GET /css/profile.css
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54440 Closing
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54432 Closing
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54470 Accepted
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54456 [200]: GET /css/recentes.css
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54456 Closing
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54486 Accepted
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54470 [200]: GET /js/profile.js?v=2
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54470 Closing
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54486 [200]: GET /css/diet.css
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54486 Closing
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54498 Accepted
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54502 Accepted
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54498 [200]: GET /js/alimentos.js?v=2
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54502 [200]: GET /js/app.js?v=2
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54498 Closing
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54502 Closing
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54504 Accepted
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54504 [200]: GET /api.php?action=session
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54504 Closing
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54518 Accepted
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54518 [200]: GET /assets/logo.svg
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54518 Closing
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54520 Accepted
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54520 [200]: GET /data/alimentos.json
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54520 Closing
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54532 Accepted
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54532 [200]: GET /data/exercicios.json
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54532 Closing
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54538 Accepted
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54538 [200]: GET /api.php?action=sync
+[Tue Jun 16 17:12:49 2026] 127.0.0.1:54538 Closing
+[Tue Jun 16 17:13:04 2026] 127.0.0.1:46720 Accepted
+[Tue Jun 16 17:13:06 2026] 127.0.0.1:46720 [302]: GET /api.php?action=logout
+[Tue Jun 16 17:13:06 2026] 127.0.0.1:46720 Closing
+[Tue Jun 16 17:13:06 2026] 127.0.0.1:46736 Accepted
+[Tue Jun 16 17:13:06 2026] 127.0.0.1:46736 [200]: GET /index.html
+[Tue Jun 16 17:13:06 2026] 127.0.0.1:46736 Closing
+[Tue Jun 16 17:13:06 2026] 127.0.0.1:46740 Accepted
+[Tue Jun 16 17:13:06 2026] 127.0.0.1:46740 [200]: GET /css/styles.css
+[Tue Jun 16 17:13:06 2026] 127.0.0.1:46740 Closing
+[Tue Jun 16 17:13:06 2026] 127.0.0.1:46752 Accepted
+[Tue Jun 16 17:13:06 2026] 127.0.0.1:46752 [200]: GET /js/JavaScript.js
+[Tue Jun 16 17:13:06 2026] 127.0.0.1:46752 Closing
+[Tue Jun 16 17:13:06 2026] 127.0.0.1:46762 Accepted
+[Tue Jun 16 17:13:06 2026] 127.0.0.1:46762 [200]: GET /assets/logo.svg
+[Tue Jun 16 17:13:06 2026] 127.0.0.1:46762 Closing
+[Tue Jun 16 17:13:07 2026] 127.0.0.1:46770 Accepted
+[Tue Jun 16 17:13:07 2026] 127.0.0.1:46770 [200]: GET /login.html
+[Tue Jun 16 17:13:07 2026] 127.0.0.1:46770 Closing
+[Tue Jun 16 17:13:07 2026] 127.0.0.1:46772 Accepted
+[Tue Jun 16 17:13:07 2026] 127.0.0.1:46776 Accepted
+[Tue Jun 16 17:13:07 2026] 127.0.0.1:46772 [200]: GET /css/styles.css
+[Tue Jun 16 17:13:07 2026] 127.0.0.1:46772 Closing
+[Tue Jun 16 17:13:07 2026] 127.0.0.1:46776 [200]: GET /assets/logo.svg
+[Tue Jun 16 17:13:07 2026] 127.0.0.1:46776 Closing
+[Tue Jun 16 17:13:07 2026] 127.0.0.1:46788 Accepted
+[Tue Jun 16 17:13:12 2026] 127.0.0.1:46788 Closed without sending a request; it was probably just an unused speculative preconnection
+[Tue Jun 16 17:13:12 2026] 127.0.0.1:46788 Closing
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:57846 Accepted
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:57846 [302]: POST /api.php?action=login
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:57846 Closing
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:57856 Accepted
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:57856 [200]: GET /app.html
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:57856 Closing
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:57872 Accepted
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:57872 [200]: GET /css/app.css
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:57872 Closing
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:57882 Accepted
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:57882 [200]: GET /css/dashboard.css
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:57882 Closing
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:57896 Accepted
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:57896 [200]: GET /css/workout.css
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:57896 Closing
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:57910 Accepted
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:57910 [200]: GET /css/scanner.css
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:57916 Accepted
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:57910 Closing
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:57916 [200]: GET /css/progress.css
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:57916 Closing
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:57930 Accepted
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:57930 [200]: GET /css/diet.css
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:57942 Accepted
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:57930 Closing
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:57942 [200]: GET /css/recentes.css
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:57942 Closing
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:57958 Accepted
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:57958 [200]: GET /css/profile.css
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:57958 Closing
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:57970 Accepted
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:57970 [200]: GET /js/profile.js?v=2
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:57970 Closing
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:57982 Accepted
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:57982 [200]: GET /js/alimentos.js?v=2
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:57992 Accepted
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:57982 Closing
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:57992 [200]: GET /js/app.js?v=2
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:57992 Closing
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58004 Accepted
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58004 [200]: GET /api.php?action=session
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58004 Closing
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58018 Accepted
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58018 [200]: GET /assets/logo.svg
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58018 Closing
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58032 Accepted
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58032 [200]: GET /data/alimentos.json
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58032 Closing
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58034 Accepted
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58034 [200]: GET /data/exercicios.json
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58034 Closing
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58048 Accepted
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58048 [200]: GET /api.php?action=sync
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58048 Closing
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58050 Accepted
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58050 [200]: GET /app.html
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58050 Closing
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58056 Accepted
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58072 Accepted
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58056 [200]: GET /css/app.css
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58084 Accepted
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58072 [200]: GET /css/dashboard.css
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58096 Accepted
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58084 [200]: GET /css/workout.css
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58112 Accepted
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58056 Closing
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58096 [200]: GET /css/scanner.css
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58116 Accepted
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58072 Closing
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58112 [200]: GET /css/progress.css
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58116 [200]: GET /css/diet.css
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58084 Closing
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58096 Closing
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58112 Closing
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58116 Closing
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58120 Accepted
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58122 Accepted
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58132 Accepted
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58144 Accepted
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58132 [200]: GET /js/profile.js?v=2
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58156 Accepted
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58144 [200]: GET /js/alimentos.js?v=2
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58156 [200]: GET /js/app.js?v=2
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58132 Closing
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58144 Closing
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58156 Closing
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58122 [200]: GET /css/profile.css
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58120 [200]: GET /css/recentes.css
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58122 Closing
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58120 Closing
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58158 Accepted
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58158 [200]: GET /api.php?action=session
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58158 Closing
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58168 Accepted
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58168 [200]: GET /assets/logo.svg
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58168 Closing
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58182 Accepted
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58182 [200]: GET /data/alimentos.json
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58182 Closing
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58190 Accepted
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58190 [200]: GET /data/exercicios.json
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58190 Closing
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58194 Accepted
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58194 [200]: GET /api.php?action=sync
+[Tue Jun 16 17:13:16 2026] 127.0.0.1:58194 Closing
+[Tue Jun 16 17:13:18 2026] 127.0.0.1:58204 Accepted
+[Tue Jun 16 17:13:21 2026] 127.0.0.1:58204 [302]: GET /api.php?action=logout
+[Tue Jun 16 17:13:21 2026] 127.0.0.1:58204 Closing
+[Tue Jun 16 17:13:21 2026] 127.0.0.1:34128 Accepted
+[Tue Jun 16 17:13:21 2026] 127.0.0.1:34128 [200]: GET /index.html
+[Tue Jun 16 17:13:21 2026] 127.0.0.1:34128 Closing
+[Tue Jun 16 17:13:21 2026] 127.0.0.1:34132 Accepted
+[Tue Jun 16 17:13:21 2026] 127.0.0.1:34132 [200]: GET /css/styles.css
+[Tue Jun 16 17:13:21 2026] 127.0.0.1:34132 Closing
+[Tue Jun 16 17:13:21 2026] 127.0.0.1:34134 Accepted
+[Tue Jun 16 17:13:21 2026] 127.0.0.1:34150 Accepted
+[Tue Jun 16 17:13:21 2026] 127.0.0.1:34134 [200]: GET /js/JavaScript.js
+[Tue Jun 16 17:13:21 2026] 127.0.0.1:34150 [200]: GET /assets/logo.svg
+[Tue Jun 16 17:13:21 2026] 127.0.0.1:34134 Closing
+[Tue Jun 16 17:13:21 2026] 127.0.0.1:34150 Closing
+[Tue Jun 16 17:13:27 2026] 127.0.0.1:34166 Accepted
+[Tue Jun 16 17:13:32 2026] 127.0.0.1:34166 Closed without sending a request; it was probably just an unused speculative preconnection
+[Tue Jun 16 17:13:32 2026] 127.0.0.1:34166 Closing
+[Tue Jun 16 17:13:54 2026] 127.0.0.1:50712 Accepted
+[Tue Jun 16 17:13:54 2026] 127.0.0.1:50712 [302]: POST /api.php?action=register
+[Tue Jun 16 17:13:54 2026] 127.0.0.1:50712 Closing
+[Tue Jun 16 17:13:54 2026] 127.0.0.1:50728 Accepted
+[Tue Jun 16 17:13:54 2026] 127.0.0.1:50728 [200]: GET /index.html?error=EmailEmUso
+[Tue Jun 16 17:13:54 2026] 127.0.0.1:50728 Closing
+[Tue Jun 16 17:13:54 2026] 127.0.0.1:50732 Accepted
+[Tue Jun 16 17:13:54 2026] 127.0.0.1:50732 [200]: GET /css/styles.css
+[Tue Jun 16 17:13:54 2026] 127.0.0.1:50742 Accepted
+[Tue Jun 16 17:13:54 2026] 127.0.0.1:50732 Closing
+[Tue Jun 16 17:13:54 2026] 127.0.0.1:50742 [200]: GET /js/JavaScript.js
+[Tue Jun 16 17:13:54 2026] 127.0.0.1:50742 Closing
+[Tue Jun 16 17:13:54 2026] 127.0.0.1:50746 Accepted
+[Tue Jun 16 17:13:54 2026] 127.0.0.1:50746 [200]: GET /assets/logo.svg
+[Tue Jun 16 17:13:54 2026] 127.0.0.1:50746 Closing
+[Tue Jun 16 17:14:04 2026] 127.0.0.1:53262 Accepted
+[Tue Jun 16 17:14:05 2026] 127.0.0.1:53262 [200]: GET /login.html
+[Tue Jun 16 17:14:05 2026] 127.0.0.1:53262 Closing
+[Tue Jun 16 17:14:05 2026] 127.0.0.1:53266 Accepted
+[Tue Jun 16 17:14:05 2026] 127.0.0.1:53266 [200]: GET /css/styles.css
+[Tue Jun 16 17:14:05 2026] 127.0.0.1:53266 Closing
+[Tue Jun 16 17:14:05 2026] 127.0.0.1:53276 Accepted
+[Tue Jun 16 17:14:05 2026] 127.0.0.1:53276 [200]: GET /assets/logo.svg
+[Tue Jun 16 17:14:05 2026] 127.0.0.1:53276 Closing
+[Tue Jun 16 17:14:06 2026] 127.0.0.1:53282 Accepted
+[Tue Jun 16 17:14:11 2026] 127.0.0.1:53282 Closed without sending a request; it was probably just an unused speculative preconnection
+[Tue Jun 16 17:14:11 2026] 127.0.0.1:53282 Closing
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48224 Accepted
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48224 [302]: POST /api.php?action=login
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48224 Closing
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48236 Accepted
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48236 [200]: GET /app.html
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48236 Closing
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48240 Accepted
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48240 [200]: GET /css/app.css
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48240 Closing
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48246 Accepted
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48254 Accepted
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48266 Accepted
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48276 Accepted
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48290 Accepted
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48304 Accepted
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48246 [200]: GET /css/scanner.css
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48254 [200]: GET /css/profile.css
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48266 [200]: GET /css/recentes.css
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48276 [200]: GET /css/diet.css
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48290 [200]: GET /css/progress.css
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48304 [200]: GET /css/dashboard.css
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48246 Closing
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48254 Closing
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48266 Closing
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48276 Closing
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48290 Closing
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48304 Closing
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48306 Accepted
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48308 Accepted
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48308 [200]: GET /js/profile.js?v=2
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48308 Closing
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48306 [200]: GET /css/workout.css
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48306 Closing
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48322 Accepted
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48322 [200]: GET /js/alimentos.js?v=2
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48322 Closing
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48338 Accepted
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48338 [200]: GET /js/app.js?v=2
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48338 Closing
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48344 Accepted
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48344 [200]: GET /api.php?action=session
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48344 Closing
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48356 Accepted
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48356 [200]: GET /assets/logo.svg
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48356 Closing
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48358 Accepted
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48358 [200]: GET /data/alimentos.json
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48358 Closing
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48362 Accepted
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48362 [200]: GET /data/exercicios.json
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48362 Closing
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48374 Accepted
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48374 [200]: GET /api.php?action=sync
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48374 Closing
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48378 Accepted
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48378 [200]: GET /app.html
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48378 Closing
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48390 Accepted
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48390 [200]: GET /css/app.css
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48390 Closing
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48392 Accepted
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48392 [200]: GET /css/dashboard.css
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48392 Closing
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48394 Accepted
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48394 [200]: GET /css/workout.css
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48408 Accepted
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48394 Closing
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48408 [200]: GET /css/scanner.css
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48408 Closing
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48412 Accepted
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48412 [200]: GET /css/progress.css
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48426 Accepted
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48412 Closing
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48426 [200]: GET /css/diet.css
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48426 Closing
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48434 Accepted
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48434 [200]: GET /css/recentes.css
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48434 Closing
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48436 Accepted
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48436 [200]: GET /css/profile.css
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48436 Closing
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48452 Accepted
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48452 [200]: GET /js/profile.js?v=2
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48452 Closing
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48458 Accepted
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48458 [200]: GET /js/alimentos.js?v=2
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48458 Closing
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48462 Accepted
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48462 [200]: GET /js/app.js?v=2
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48462 Closing
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48470 Accepted
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48470 [200]: GET /api.php?action=session
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48470 Closing
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48474 Accepted
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48474 [200]: GET /assets/logo.svg
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48474 Closing
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48480 Accepted
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48480 [200]: GET /data/alimentos.json
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48480 Closing
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48484 Accepted
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48484 [200]: GET /data/exercicios.json
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48484 Closing
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48488 Accepted
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48488 [200]: GET /api.php?action=sync
+[Tue Jun 16 17:14:14 2026] 127.0.0.1:48488 Closing
+[Tue Jun 16 17:14:17 2026] 127.0.0.1:48496 Accepted
+[Tue Jun 16 17:14:17 2026] 127.0.0.1:48496 [200]: GET /api.php?action=delete_account
+[Tue Jun 16 17:14:17 2026] 127.0.0.1:48496 Closing
+[Tue Jun 16 17:14:19 2026] 127.0.0.1:50370 Accepted
+[Tue Jun 16 17:14:19 2026] 127.0.0.1:50370 [200]: GET /index.html
+[Tue Jun 16 17:14:19 2026] 127.0.0.1:50370 Closing
+[Tue Jun 16 17:14:19 2026] 127.0.0.1:50374 Accepted
+[Tue Jun 16 17:14:19 2026] 127.0.0.1:50374 [200]: GET /css/styles.css
+[Tue Jun 16 17:14:19 2026] 127.0.0.1:50374 Closing
+[Tue Jun 16 17:14:19 2026] 127.0.0.1:50386 Accepted
+[Tue Jun 16 17:14:19 2026] 127.0.0.1:50400 Accepted
+[Tue Jun 16 17:14:19 2026] 127.0.0.1:50400 [200]: GET /js/JavaScript.js
+[Tue Jun 16 17:14:19 2026] 127.0.0.1:50400 Closing
+[Tue Jun 16 17:14:19 2026] 127.0.0.1:50386 [200]: GET /assets/logo.svg
+[Tue Jun 16 17:14:19 2026] 127.0.0.1:50386 Closing
+[Tue Jun 16 17:14:20 2026] 127.0.0.1:50412 Accepted
+[Tue Jun 16 17:14:20 2026] 127.0.0.1:50412 [200]: GET /login.html
+[Tue Jun 16 17:14:20 2026] 127.0.0.1:50412 Closing
+[Tue Jun 16 17:14:20 2026] 127.0.0.1:50424 Accepted
+[Tue Jun 16 17:14:20 2026] 127.0.0.1:50424 [200]: GET /css/styles.css
+[Tue Jun 16 17:14:20 2026] 127.0.0.1:50424 Closing
+[Tue Jun 16 17:14:20 2026] 127.0.0.1:50440 Accepted
+[Tue Jun 16 17:14:20 2026] 127.0.0.1:50440 [200]: GET /assets/logo.svg
+[Tue Jun 16 17:14:20 2026] 127.0.0.1:50440 Closing
+[Tue Jun 16 17:14:30 2026] 127.0.0.1:39878 Accepted
+[Tue Jun 16 17:14:30 2026] 127.0.0.1:39878 [302]: POST /api.php?action=login
+[Tue Jun 16 17:14:30 2026] 127.0.0.1:39878 Closing
+[Tue Jun 16 17:14:30 2026] 127.0.0.1:39882 Accepted
+[Tue Jun 16 17:14:30 2026] 127.0.0.1:39882 [200]: GET /login.html?error=CredenciaisInvalidas
+[Tue Jun 16 17:14:30 2026] 127.0.0.1:39882 Closing
+[Tue Jun 16 17:14:30 2026] 127.0.0.1:39898 Accepted
+[Tue Jun 16 17:14:30 2026] 127.0.0.1:39898 [200]: GET /css/styles.css
+[Tue Jun 16 17:14:30 2026] 127.0.0.1:39902 Accepted
+[Tue Jun 16 17:14:30 2026] 127.0.0.1:39898 Closing
+[Tue Jun 16 17:14:30 2026] 127.0.0.1:39902 [200]: GET /assets/logo.svg
+[Tue Jun 16 17:14:30 2026] 127.0.0.1:39902 Closing
