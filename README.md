@@ -50,4 +50,6 @@ O design baseia-se em conceitos modernos de **Neumorphism e Glassmorphism** mesc
 
 ---
 
+Apresentação MVC do projeto: https://youtu.be/jzyHmtfIQwI
+
 Feito com 🩵 e muito código.
