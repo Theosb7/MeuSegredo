@@ -1,15 +1,15 @@
 <?php
-require_once __DIR__ . '/../Model/UserData.php';
+require_once __DIR__ . '/../Services/SyncService.php';
 
 class SyncController {
     public static function handle() {
         header('Content-Type: application/json');
-        
+
         if (!isset($_SESSION['usuario_id'])) {
             echo json_encode(['status' => 'error', 'message' => 'Não autenticado']);
             exit;
         }
-        
+
         $userId = $_SESSION['usuario_id'];
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -19,7 +19,7 @@ class SyncController {
                 exit;
             }
 
-            UserData::saveKey($userId, $data['key'], $data['value']);
+            SyncService::saveKey($userId, $data['key'], $data['value']);
             echo json_encode(['status' => 'success']);
             exit;
         }
@@ -27,12 +27,12 @@ class SyncController {
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             $key = $_GET['key'] ?? '';
             if (empty($key)) {
-                $results = UserData::getAll($userId);
+                $results = SyncService::getAll($userId);
                 echo json_encode(['status' => 'success', 'data' => $results]);
                 exit;
             }
 
-            $value = UserData::getByKey($userId, $key);
+            $value = SyncService::getByKey($userId, $key);
             echo json_encode(['status' => 'success', 'data' => $value]);
             exit;
         }

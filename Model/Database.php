@@ -18,7 +18,12 @@ class Database {
 
                 self::initTables();
             } catch (Exception $e) {
-                die(json_encode(['status' => 'error', 'message' => 'Erro no banco: ' . $e->getMessage()]));
+                $msg = $e->getMessage();
+                if (stripos($msg, 'could not find driver') !== false || !extension_loaded('pdo_sqlite')) {
+                    $hint = 'Driver PDO SQLite não encontrado. Habilite a extensão pdo_sqlite (ex: on Debian/Ubuntu run "sudo apt install php-sqlite3"), então reinicie o servidor PHP.';
+                    die(json_encode(['status' => 'error', 'message' => 'Erro no banco: could not find driver', 'hint' => $hint]));
+                }
+                die(json_encode(['status' => 'error', 'message' => 'Erro no banco: ' . $msg]));
             }
         }
         return self::$pdo;

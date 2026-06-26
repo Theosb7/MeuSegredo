@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../Model/User.php';
+require_once __DIR__ . '/../Services/AuthService.php';
 
 class AuthController {
     public static function register() {
@@ -13,11 +13,11 @@ class AuthController {
         }
 
         try {
-            $userId = User::create($nome, $email, $senha);
-            
+            $userId = AuthService::register($nome, $email, $senha);
+
             $_SESSION['usuario_id'] = $userId;
             $_SESSION['usuario_nome'] = $nome;
-            
+
             header("Location: ../app.html");
             exit;
         } catch (Exception $e) {
@@ -30,9 +30,9 @@ class AuthController {
         $email = $_POST['email'] ?? '';
         $senha = $_POST['senha'] ?? '';
 
-        $user = User::findByEmail($email);
+        $user = AuthService::authenticate($email, $senha);
 
-        if ($user && password_verify($senha, $user['senha'])) {
+        if ($user) {
             $_SESSION['usuario_id'] = $user['id'];
             $_SESSION['usuario_nome'] = $user['nome'];
             header("Location: ../app.html");
